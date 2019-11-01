@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择关卡</title>
+
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+    <link rel='stylesheet prefetch' href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css'>
+    
+    <link rel="stylesheet" href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css'>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/option.css" media="screen" type="text/css" />
+  </head>
+  <body>
+    <div class="hulogo">
+        <img src="img/hulogo.png">
+      </div>
+     <div class="but">
+        <audio style="display:none; height: 0" id="bg-music" preload="auto" src="music/back.mp3" loop="loop"></audio>
+        <a href="startgame.html" class="" id="">
+          <img id="change" src="img/主页.png" alt="">
+        </a>
+        <a class="" id="change" >
+          <div class="close_music_div"><a href="javascript:void(0)" onclick="pauseAuto()" class="f85"> <img src="img/音乐.png" alt=""></a></div>
+          <div class="open_music_div" style="display: none"><a href="javascript:void(0)" onclick="openmusic()" class="f85"> <img src="img/音乐no.png" alt=""></a></div>
+        </a>
+
+      </div>
+    <div class="main">
+      <div class="wowoimg">
+        <img src="img/WOWO战记.png">
+      </div>
+
+    <div class="htmleaf-container">
+    
+    <div class="slide-container">
+  
+      <div class="wrapper">
+        <div class="clash-card barbarian">
+          <div class="" id="game1" onclick="">
+            <a href="page3.html"><img id="change2" src="img/关卡1.png" alt="关卡1" /></a>
+          </div>
+        
+
+
+
+       
+
+        </div> <!-- end clash-card barbarian-->
+      </div> <!-- end wrapper -->
+      
+      <div class="wrapper">
+        <div class="clash-card archer">
+          <div class="" id="game2" onclick="">
+            <a href=""><img  id="change2" src="img/关卡 2.png" alt="关卡2" /></a>
+          </div>
+        
+
+        </div> <!-- end clash-card archer-->
+      </div> <!-- end wrapper -->
+      
+      <div class="wrapper">
+        <div class="clash-card giant">
+          <div class="" id="game3" onclick="">
+            <a href=""><img id="change2"  src="img/关卡3.png" alt="关卡3" /></a>
+          </div>
+         
+
+          
+
+
+        </div> <!-- end clash-card giant-->
+      </div> <!-- end wrapper -->
+      
+      
+    </div> <!-- end container -->
+    
+  </div>
+
+      
+    </div>
+   
+     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      //音乐自动播放
+          $(document).ready(function(){
+              autoPlayMusic();
+              audioAutoPlay();
+          });
+ 
+          function openmusic(){
+            autoPlayMusic();
+              audioAutoPlay();
+              $(".close_music_div").css({"display":"block"});
+          $(".open_music_div").css({"display":"none"});
+          }
+ 
+          function pauseAuto(){
+            var audio = document.getElementById('bg-music');
+          audio.pause();
+          $(".close_music_div").css({"display":"none"});
+          $(".open_music_div").css({"display":"block"});
+        }
+ 
+          function audioAutoPlay() {
+              var audio = document.getElementById('bg-music');
+              audio.play();
+              document.addEventListener("WeixinJSBridgeReady", function () {
+                  audio.play();
+              }, false);
+          }
+          // 音乐播放
+          function autoPlayMusic() {
+              // 自动播放音乐效果，解决浏览器或者APP自动播放问题
+              function musicInBrowserHandler() {
+                  musicPlay(true);
+                  document.body.removeEventListener('touchstart', musicInBrowserHandler);
+              }
+              document.body.addEventListener('touchstart', musicInBrowserHandler);
+              // 自动播放音乐效果，解决微信自动播放问题
+              function musicInWeixinHandler() {
+                  musicPlay(true);
+                  document.addEventListener("WeixinJSBridgeReady", function () {
+                      musicPlay(true);
+                  }, false);
+                  document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+              }
+              document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+          }
+          function musicPlay(isPlay) {
+              var media = document.querySelector('#bg-music');
+              if (isPlay && media.paused) {
+                  media.play();
+              }
+              if (!isPlay && !media.paused) {
+                  media.pause();
+              }
+          }
+    </script> 
+   
+
+
+
+  <script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
+  <script src='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script>
+
+  <script type="text/javascript">
+    
+  </script>
+
+  <script type="text/javascript">
+    (function() {
+  
+      var slideContainer = $('.slide-container');
+      
+      slideContainer.slick();
+      
+      $('.clash-card__image img').hide();
+      $('.slick-active').find('.clash-card img').fadeIn(200);
+      
+      // On before slide change
+      slideContainer.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        $('.slick-active').find('.clash-card img').fadeOut(1000);
+      });
+      
+      // On after slide change
+      slideContainer.on('afterChange', function(event, slick, currentSlide) {
+        $('.slick-active').find('.clash-card img').fadeIn(200);
+      });
+      
+    })();
+  </script>
+
+
+  </body>
+</html>

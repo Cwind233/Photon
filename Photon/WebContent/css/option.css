@@ -1,0 +1,51 @@
+body{
+	height: 100%;  
+	text-align: center;
+	margin: 0;
+	background-image: url(../img/背景.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	overflow: hidden;
+}  
+
+.main{
+	position: relative;
+	width: 1024px;
+	height: 768px;
+	margin:  0 auto;
+}
+.wowoimg{
+	padding-top: 60px;
+}
+.but{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	
+}
+ #change:hover{
+  opacity:0.6;filter:alpha(opacity=40);
+ }
+ #change2:hover{
+  opacity:0.9;filter:alpha(opacity=40);
+ }
+ a{
+ 	text-decoration: none;
+ 	padding-bottom: 20px;
+ }
+ .anniu{
+ 	display:inline-block;
+ 	float: left;
+ }
+ .but a img{
+ 	width: 73px;
+ 	height: 68px;
+ }
+ .wrapper a{
+ 	outline: none;
+ }
+ .hulogo{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}

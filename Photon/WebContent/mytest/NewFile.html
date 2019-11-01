@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>验证码</title>
+<style type="text/css">
+    #canvas{
+        cursor:pointer;
+    }
+</style>
+</head>
+<body>
+    <canvas id="canvas" width="150px" height="50px"></canvas>
+<script>
+        //生成随机数
+    function randomNum(min,max){
+        return Math.floor(Math.random()*(max-min)+min);
+    }
+        //生成随机颜色RGB分量
+    function randomColor(min,max){
+        var r = randomNum(min,max);
+        var g = randomNum(min,max);
+        var b = randomNum(min,max);
+        return "rgb("+r+","+g+","+b+")";
+    }
+    //先阻止画布默认点击发生的行为再执行drawPic()方法
+    document.getElementById("canvas").onclick = function(e){
+        e.preventDefault();
+        drawPic();
+    };
+    function drawPic(){
+        //获取到元素canvas
+        var $canvas = document.getElementById("canvas");
+        var _str = "0123456789";//设置随机数库
+        var _picTxt = "";//随机数
+        var _num = 4;//4个随机数字
+        var _width = $canvas.width;
+        var _height = $canvas.height;
+        var context = $canvas.getContext("2d");//获取 context 对象
+        context.textBaseline = "bottom";//文字上下对齐方式--底部对齐
+        context.fillStyle = randomColor(180,240);//填充画布颜色
+        context.fillRect(0,0,_width,_height);//填充矩形--画画
+        for(var i=0; i<_num; i++){
+            var x = (_width-10)/_num*i+10;
+            var y = randomNum(_height/2,_height);
+            var deg = randomNum(-45,45);
+            var txt = _str[randomNum(0,_str.length)];
+            _picTxt += txt;//获取一个随机数
+            context.fillStyle = randomColor(10,100);//填充随机颜色
+            context.font = randomNum(16,40)+"px SimHei";//设置随机数大小，字体为SimHei
+            context.translate(x,y);//将当前xy坐标作为原始坐标
+            context.rotate(deg*Math.PI/180);//旋转随机角度
+            context.fillText(txt, 0,0);//绘制填色的文本
+            context.rotate(-deg*Math.PI/180);
+            context.translate(-x,-y);
+        }
+        //线
+        for(var i=0; i<_num; i++){
+            //定义笔触颜色
+            context.strokeStyle = randomColor(90,180);
+            context.beginPath();
+            //随机划线--4条路径
+            context.moveTo(randomNum(0,_width), randomNum(0,_height));
+            context.lineTo(randomNum(0,_width), randomNum(0,_height));
+            context.stroke();
+        }
+        //点
+        for(var i=0; i<_num*10; i++){
+        	context.fillStyle = randomColor(0,255);
+            context.beginPath();
+            context.arc(randomNum(0,_width),randomNum(0,_height), 1, 0, 2*Math.PI);
+            context.fill();
+        }
+        return _picTxt;//返回随机数字符串
+    }
+    drawPic();
+</script>
+</body>
+</html>
