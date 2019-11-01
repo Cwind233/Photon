@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebFilter;
 public class LoginFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	    //TODO
 		chain.doFilter(request, response);
 	}
 	public void destroy() {

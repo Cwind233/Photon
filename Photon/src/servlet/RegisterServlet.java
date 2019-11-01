@@ -23,7 +23,6 @@ public class RegisterServlet extends HttpServlet {
         
         //创建用户Dao对象
         User user = new User(userName, password);
-        System.out.println(userName+password);//test
         user.setUserName(userName);
         user.setPassword(password);
         user.setEmail("test");

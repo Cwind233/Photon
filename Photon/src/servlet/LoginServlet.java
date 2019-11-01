@@ -31,7 +31,6 @@ public class LoginServlet extends HttpServlet {
         user.setEmail("test");//tests
         user.setNickName("test");//test
         user.setHeadImage("test");//test
-        System.out.println(userName+password);//test
         
         //校验密码 返回flag  0失败 1成功 2不存在
         int flag = new UserServiceImpl().queryUserPassword(user);
@@ -39,7 +38,6 @@ public class LoginServlet extends HttpServlet {
         if(flag == 0) {
             request.getSession().setAttribute("message", "登录失败，密码错误");
             response.sendRedirect("logintest.jsp");//test
-            System.out.println("登录失败密码错误");//test
         }else if(flag == 1){//1可以
             //登录验证成功后，查询用户信息
             User queryUser = new User();
@@ -50,15 +48,12 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("headImage", queryUser.getHeadImage());
             request.getSession().setAttribute("message", "登录成功");//test
             response.sendRedirect("logintest.jsp");//test
-            System.out.println("登录成功");//test
         }else if(flag == 2) {
             request.getSession().setAttribute("message", "登录失败，用户不存在");
             response.sendRedirect("logintest.jsp");//test
-            System.out.println("登录失败用户不存在");//test
         }else {
             request.getSession().setAttribute("message", "服务器异常，请重试");
             response.sendRedirect("logintest.jsp");//test
-            System.out.println("登录失败服务器异常");//test
         }
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
