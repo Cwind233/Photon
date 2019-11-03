@@ -1,0 +1,222 @@
+html {
+  line-height: 1.15; 
+  -webkit-text-size-adjust: 100%; /* 防止在iOS中更改方向后调整字体大小 */
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+hr {
+  box-sizing: content-box; /* 在Firefox中添加正确的方框大小*/
+  height: 0; 
+  overflow: visible; /* 显示边和ie中的溢出*/
+}
+
+pre {
+  font-family: monospace, monospace; /* 更正所有浏览器中字体大小的缩放*/
+  font-size: 1em; /* 更正所有浏览器中奇怪的“em”字体大小 */
+}
+
+a {
+  background-color: transparent;/*删除IE 10中活动链接的灰色背景*/
+}
+
+abbr[title] {
+  border-bottom: none; /* Chrome 57 */
+  text-decoration: underline; 
+  text-decoration: underline dotted; 
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 更正所有浏览器中字体大小和缩放 */
+  font-size: 1em; 
+}
+
+small {
+  font-size: 80%;
+}
+/*防止“sub”和“sup”元素影响*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+
+img {
+  border-style: none;/*IE 10*/
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; 
+  font-size: 100%; 
+  line-height: 1.15; 
+  margin: 0; 
+}
+
+button,
+input { 
+  overflow: visible;/*在IE显示边缘溢出*/
+}
+
+button,
+select { 
+  text-transform: none;/*删除文本转换的继承*/
+}
+
+/*更正在iOS和Safari中无法设置可单击类型的样式*/
+/*button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}*/
+
+/*移除Firefox中的border和padding*/
+
+/*button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+*/
+/*恢复上一规则取消设置的焦点样式*/
+
+/*button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+*/
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. 更正Edge和IE文字环绕.
+ * 2. 更正IE中“fieldset”元素的颜色继承.
+ * 3. 移除填充
+ */
+
+legend {
+  box-sizing: border-box; 
+  color: inherit; 
+  display: table; 
+  max-width: 100%; 
+  padding: 0; 
+  white-space: normal; 
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * 删除IE 10中的默认垂直滚动条+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; 
+  padding: 0; 
+}
+
+/**
+ * 更正chrome中递增和递减按钮的光标样式。
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. 纠正奇怪的外观
+ * 2.更正Safari中的轮廓样式.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; 
+  outline-offset: -2px; 
+}
+
+/**
+ * 卸下MacOS上Chrome和Safari的内部填充物
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. 更正在iOS和Safari中无法设置可单击类型的样式.
+ * 2. 在Safari中将字体属性更改为“inherit”.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit; 
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+body,div,h1,h2,h3,h4,h5,h6,form,input,table,th,tr,td,ul,ol,li,a,img,button,select,option,b,i,strong,textarea,br,dl,dt,dd,em,iframe,label,link,p,link,meta,span,style,figure,fieldset{padding:0;margin:0;}
+a{text-decoration:none;color:inherit}
+a img{border:0;}/*去除a链接里img默认的边框*/
+ul,ol{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+input,fieldset,button{outline: none;border: none;}
+button{cursor: pointer}
+textarea{resize:none}
+textarea:focus{outline: none;border: none;}
+

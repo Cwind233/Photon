@@ -17,6 +17,7 @@ public class UserServiceImpl implements IUserService {
     //0失败 1成功 2已存在
     public int addUser(User user) {
         User queryUser = userDao.queryUserByUserName(user);
+        System.out.println(queryUser.getUserName()+"  \n "+user.getUserName());
         if(user.getUserName().equals(queryUser.getUserName())) {
             flag = 2;
         }else {

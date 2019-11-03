@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/reset1.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+</head>
+ <body>
+	<main>
+		<div class="wrapper">
+			<div class="content-left">
+				<div class="btn startBtn"><button></button></div>
+				<div class="top-left">
+					<audio style="display:none; height: 0" id="bg-music" preload="auto" src="music/back.mp3" loop="loop"></audio>
+					<ul style="float: left;">
+					 	<li>
+						 <a href="startgame.html"><img id="change" src="images/按钮/主页.png" alt="" width="60px" height="60px"></a>
+						 <!-- 置顶锚点定位 -->
+					 	</li>
+						<li>
+							<a id="change">
+								<div class="close_music_div">
+									<a href="javascript:void(0)" onclick="pauseAuto()" class="f85">
+										<img src="images/按钮/音乐.png" alt="" width="60px" height="60x" >
+									</a> 
+								</div>
+								<div class="open_music_div" style="display: none">
+									<a href="javascript:void(0)" onclick="openmusic()" class="f85">
+										<img src="images/按钮/音乐no.png" alt="" width="60px" height="60x" >
+									</a>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#"><img src="images/按钮/分享.png" alt="" width="60px" height="60px"></a>
+						</li>
+				 	</ul>
+				</div>
+				<button class="top-right" onclick="change()">
+					<img id="change2" src="images/按钮/star1.png" alt="" >
+				</button>
+				<script type="text/javascript">
+					function change(){
+						 document.getElementById('change2').src="images/按钮/star2.png";
+					}
+				</script>
+				<div class="CttL-content">
+					 <canvas id="canvas1" width="600" height="640" style="position: absolute; left: 360px;top: 160px;/*background-image:url(images/背景.png);*/ background-size: 100% 100%;"></canvas>
+					 <div class="heart2" id="heart2"></div> 
+					  <div class="heart1" id="heart1"></div>
+					 <div class="logo1" id="logo1"></div>
+					 <!-- <img  id="logo" src="../images/人物/向上走.png" alt="" width="80px" height="80px"> -->
+					    <!--<div class="logo2"></div>-->
+					  
+				</div>
+				<div class="footer">
+					<ul style="float: left;">
+					 	<li>
+						    <button><img class="on" id="left" src="images/按钮/left.png" alt="" width="70px" height="70px"></button>
+						</li>
+						<li>
+						 	<button><img class="on" id="right" src="images/按钮/right.png" alt="" width="70px" height="70px"></button>
+						</li>
+						<li>
+						 	<button><img class="on" id="go" src="images/按钮/go.png" alt="" width="70px" height="70px"></button>						
+						</li>
+						<li>
+						 	<button><img class="on" id="jump" src="images/按钮/jump.png" alt="" width="70px" height="70px"></button>
+						</li>
+						<li>
+						 	<button><img class="on1" id="on" src="images/按钮/p1.png" alt="" width="70px" height="70px"></button>
+						</li>
+						<li>
+						 	<button><img class="on1" id="on" src="images/按钮/p2.png" alt="" width="70px" height="70px"></button>
+						</li>
+				 	</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="content-right">
+			<div class="CttR-top">
+				<div class="CttRTop-left">
+					<span class="starBtn"><button onclick="Onclick()"><img src="images/按钮/继续.png" alt="" width="70px" height="70px"></button></span>
+				</div>
+				<div class="CttRTop-left">
+					<button><span class="reset"><img src="images/按钮/暂停.png" alt="" width="70px" height="70px"></span></button>
+				</div>
+			</div>
+			<div class="CttR-content">
+				<div class="CttR-main">
+					<div class="mbar"><input type="button" value="MAIN" style="background: rgb(255,255,152);font-weight: 700;color: #000;padding:0 5px;"/></div>
+	    			<p class="main" id="div" contenteditable="true" style="margin-bottom: 50px; width:88%;height:217px;overflow: hidden;"></p>
+				</div>
+				<div class="CttR-proc1">
+					<div class="mbar"><input type="button" value="PROC1" style="background: rgb(255,255,152);font-weight: 700;color: #000;padding:0 5px; "/></div>
+	    			 <p class="pro1" id="div" contenteditable="true" style="margin-bottom: 50px;width:88%;height:217px;overflow: hidden; "></p> 
+				</div>
+			</div>
+			<div class="CttR-footer">
+				<a href="#" class="onHover">
+				<button class="tips"  onclick="change1()">
+					<img id="tips" src="images/按钮/tips2.png" alt="" >
+				</button>
+				<script type="text/javascript">
+					function change1(){// onclick="change1()"
+						 var pic=document.getElementById('tips');
+						 pic.src="images/按钮/tips.png";
+					}
+				</script>
+				<div class="tips-hover">
+					<img src="images/按钮/tip框.png" alt="">
+				</div>
+				</a>
+			</div>
+		</div>
+		</div>
+	</main>
+	
+	<script type="text/javascript">
+		//控制字数
+		var lim=new limit();
+		lim.txtNode=document.getElementsByClassName("CttR-content");
+		lim.txtLimit=document.getElementsByClassName("main");
+		lim.limitCount=6;
+		lim.init();
+		function limit() {
+			var txtNode;
+			var textLimit;
+			var limitCount;
+			this.init=function() {
+				txtNode=this.txtNode;
+				textLimit=this.txtLimit;
+				limitCount=this.limitCount;
+				txtNode.maxLength=limitCount;
+				txtNode.onkeydown=function() {
+					txtLimit.innerText=txtNote.value.length;};
+				txtNote.onkeyup=function(){
+					txtLimit.innerText=txtNode.value.length;};
+				}
+			}
+		}
+	</script> 
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      //音乐自动播放
+          $(document).ready(function(){
+              autoPlayMusic();
+              audioAutoPlay();
+          });
+ 
+          function openmusic(){
+            autoPlayMusic();
+              audioAutoPlay();
+              $(".close_music_div").css({"display":"block"});
+          $(".open_music_div").css({"display":"none"});
+          }
+ 
+          function pauseAuto(){
+            var audio = document.getElementById('bg-music');
+          audio.pause();
+          $(".close_music_div").css({"display":"none"});
+          $(".open_music_div").css({"display":"block"});
+        }
+ 
+          function audioAutoPlay() {
+              var audio = document.getElementById('bg-music');
+              audio.play();
+              document.addEventListener("WeixinJSBridgeReady", function () {
+                  audio.play();
+              }, false);
+          }
+          // 音乐播放
+          function autoPlayMusic() {
+              // 自动播放音乐效果，解决浏览器或者APP自动播放问题
+              function musicInBrowserHandler() {
+                  musicPlay(true);
+                  document.body.removeEventListener('touchstart', musicInBrowserHandler);
+              }
+              document.body.addEventListener('touchstart', musicInBrowserHandler);
+              // 自动播放音乐效果，解决微信自动播放问题
+              function musicInWeixinHandler() {
+                  musicPlay(true);
+                  document.addEventListener("WeixinJSBridgeReady", function () {
+                      musicPlay(true);
+                  }, false);
+                  document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+              }
+              document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+          }
+          function musicPlay(isPlay) {
+              var media = document.querySelector('#bg-music');
+              if (isPlay && media.paused) {
+                  media.play();
+              }
+              if (!isPlay && !media.paused) {
+                  media.pause();
+              }
+          }
+    </script> 
+	<script>
+　　　　　//瓦片地图编辑器获取到的数据
+        var map={
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+             0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
+             0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0,
+             0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0,
+             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+             1, 1, 1, 1, 1, 1, 1,0, 0, 0, 0, 0 ],
+        "height":6,
+         "width":12
+        }
+        var canvas = document.getElementById("canvas1");
+        var ctx = canvas.getContext("2d");
+
+        var W = 60;    //每一块地图块的宽
+        var H = 60;    //每一块地图块的高
+        var l = 0;
+        var t = 0;
+        var img=new Image();
+        img.src='images/地图/块.png';
+        img.onload=function () {
+            for (var i=0; i<map.data.length; i++){
+
+                l = i%map.width*W;     //绘画每一块地图块的X坐标
+                if (i%map.width==0&&i!=0){     //当达到一行是换行，注意第一行是0%0=0；所以应去除第一行换行的情况
+                    t+=H;              //绘画地图块的Y坐标
+                }
+                if (map.data[i]>0){     //当地图块的数据不为0时绘画地图块
+                    ctx.drawImage(img ,l,t,W, H);
+                }
+            }
+        }
+        
+    </script>
+	<script type="text/javascript">
+    	$(function(){
+ 			$("ul .on").click(function(){
+ 				$(".main").append($(this).clone());
+ 			});
+ 			$("ul .on1").click(function(){
+ 				$(".pro1").append($(this).clone());
+ 			});
+ 		});
+	</script>
+	<script>
+		//开启游戏
+		var startBtn=document.querySelector('.startBtn button');
+		startBtn.onclick=function(){
+		startBtn.parentNode.style.display='none';
+		};
+	</script>
+	</div>
+	<script>
+	var Order="";
+	 var order;
+	 var car = document.getElementsByClassName("logo1");
+	    var temp;
+	    var x=0,y=0,i=0;
+	    var leftOffset=115;
+	    var topOffset=500;
+	    var cnt,flag=0,tmp;
+	function Get_ID()
+	  {
+	  	
+	   var links=$("#div img");
+	   var len=links.length;	  
+	   var  links_id= new Array(len);	     
+	   //var links_id=[];	
+	   for(var i=0;i<len;i++)
+	   {	     
+	   	//links_id.push($(links[i]).attr('id'));
+	     links_id[i]=$(links[i]).attr('id');//获取图片的id值
+	     
+	   }
+	   for(var j=0;j<len;j++)
+	   {
+	   	var temp= links_id[j];
+	   	if(temp=="left")
+	   		{
+	   		Order=Order+'3';
+	   		}
+		if(temp=="right")
+   		{
+   		Order=Order+'4';
+   		}
+		if(temp=="go")
+   		{
+   		Order=Order+'1';
+   		}
+		if(temp=="jump")
+   		{
+   		Order=Order+'2';
+   		}
+	       
+	   }
+	   
+	  }
+	  
+	  function Onclick()//ajax后端传输数据
+	  {
+		  Order="";
+		  var links=$("#div img");
+		   var len=links.length;	  
+		   var  links_id= new Array(len);	     
+		   //var links_id=[];	
+		   for(var i=0;i<len;i++)
+		   {	     
+		   	//links_id.push($(links[i]).attr('id'));
+		     links_id[i]=$(links[i]).attr('id');//获取图片的id值
+		     
+		   }
+		   for(var j=0;j<len;j++)
+		   {
+		   	var temp= links_id[j];
+		   	if(temp=="left")
+		   		{
+		   		Order=Order+'3';
+		   		}
+			if(temp=="right")
+	   		{
+	   		Order=Order+'4';
+	   		}
+			if(temp=="go")
+	   		{
+	   		Order=Order+'1';
+	   		}
+			if(temp=="jump")
+	   		{
+	   		Order=Order+'2';
+	   		}
+		       
+		   }
+		 //var $uname=$("#uname").val();
+		// var $upass=$("#upass").val();
+		 var car = document.getElementsByClassName("box2");
+		  $.ajax({
+			  url:"./Exchange1_1",
+			 type:"post",
+			 dataType:"json",		 
+			//data:"uname="+$uname,"upass":$upass,"uname":$uname,
+			data:{"Order":Order},
+			  success:function(result,testStatus)
+			  {	
+				
+				   order=eval(result);
+				   var car = document.getElementsByClassName("logo1");
+				   var temp;
+				    var x=0,y=0,i=0;
+				    var leftOffset=115;
+				    var topOffset=500;
+				    var cnt,flag=0,tmp;
+				    leftOffset=115;
+					topOffset=500;
+				    //var order="bbhbbhbhb";
+				    
+				    Go(i,order.order.length);
+				   
+				   
+				 
+				    
+			  }
+			
+		  })
+	  
+	 
+	  }
+	/*var car = document.getElementsByClassName("logo1");
+    var temp;
+    var x=0,y=0,i=0;
+    var leftOffset=115;
+    var topOffset=500;
+    var cnt,flag=0,tmp;*/
+    //var order="bbhbbhbhb";
+    
+    //Go(i,order.length);
+     
+      function Go(start,end)
+      {
+
+        if (start>=end) {
+        	
+        	 leftOffset=115;
+     	    topOffset=500;
+        	return ;}
+        temp=order.order.charAt(start);
+        		            
+        
+        if(temp=='c')//向左转向
+                   
+        {
+           Turn_left();//添加图
+           function Turn_left()
+           {
+        	   //图片宽高为80px;
+        	   var divs=document.getElementById('logo1');
+        	   //divs.src="../images/人物/跳上色.png";
+        	   divs.style.backgroundImage="url(../images/人物/往左走.png)";
+        	   divs.style.display="block";
+        	  // divs.style.backgroundImage = 'url(../images/人物/往左走.png)';
+        	  
+           }
+        }
+       if(temp=='d')//向右转向
+        {//添加图片
+                 Turn_Right();
+         function Turn_Right()
+         {
+        	 var divs=document.getElementById('logo1');
+           
+           var bigImg = document.createElement("img");
+           bigImg.src="/images/人物/往上走.png";
+      	   bigImg.width="80";
+      	   bigImg.height="80";
+      	  
+      	   divs.appendChild(bigImg);
+         }
+        }
+        if(temp=='b')//向右前进一格
+              {
+        	    // x=x+1;
+                tmp=leftOffset;
+               
+                 b();
+                 function b()
+                 {
+                  clearInterval(car[0].timer);
+                   car[0].timer=setInterval(function()
+                   {
+                	   
+                     leftOffset+=5;
+                     car[0].style.left=leftOffset+"px"
+                     if(leftOffset>=(tmp+79))
+                     {
+                      clearInterval(car[0].timer);
+                     }
+                   },30)
+
+                 }
+              }
+       
+        if(temp=='a')//向左前进一格
+        {
+              //x=x-1;
+            tmp=leftOffset;
+            c();
+                  function c()
+                  {
+                    clearInterval(car[0].timer);
+                   car[0].timer=setInterval(function()
+                   {
+                     leftOffset-=5;
+                     car[0].style.left=leftOffset+"px";
+                     if(leftOffset<=(tmp-79))
+                     {
+                      clearInterval(car[0].timer);
+                     }
+                   },30)
+                  }
+        }
+        if(temp=='q')//原地跳
+        {
+          cnt=topOffset;
+          Up();
+          function Up()
+          {
+                   clearInterval(car[0].timer);
+                   car[0].timer=setInterval(function()
+                   {
+                       topOffset-=5;
+                       car[0].style.top=topOffset+"px";
+                       if (topOffset<=(cnt-140)) {//(cnt+140)
+                           
+                         clearInterval(car[0].timer);
+                          Down();
+                       
+                       }
+                   },10)
+          }
+
+          function Down()//跳回到原处
+          {
+           
+           clearInterval(car[0].timer);
+            car[0].timer=setInterval(function()
+            {
+                      
+                     topOffset+=5;
+                     car[0].style.top=topOffset+"px";
+                     if(topOffset>=cnt)
+                     {                     
+                      clearInterval(car[0].timer);
+                     }
+              
+            },10)
+          }
+          
+        }
+         
+        if(temp=='e')//做上跳
+        {
+          cnt=topOffset;
+          tmp=leftOffset;
+          e();
+                 function e()//向上跳245像素
+                 {
+                     clearInterval(car[0].timer);
+                     car[0].timer=setInterval(function()
+                     {
+                         topOffset-=5;
+                         car[0].style.top=topOffset+"px";
+                         if(topOffset<=(cnt-210))
+                         {
+                          clearInterval(car[0].timer);
+                            L1();
+                         }
+                     },10)
+                 }
+                 function L1()//像左走一格
+                 {
+                     clearInterval(car[0].timer);
+                     car[0].timer=setInterval(function()
+                     {
+                      leftOffset-=5;
+                     car[0].style.left=leftOffset+"px";
+                      if(leftOffset<=(tmp-79))
+                      {
+                        clearInterval(car[0].timer);
+                        Down1();
+                      }
+                     },10)
+                 }
+                 function Down1()//自由落体
+                 {
+                  clearInterval(car[0].timer);
+                  car[0].timer=setInterval(function()
+                  {
+                    topOffset+=5;
+                    car[0].style.top=topOffset+"px";
+                    if(topOffset>=(cnt-116))
+                    {
+                      clearInterval(car[0].timer);
+                    }
+                  },10)
+                  
+                 }
+        }
+        if(temp=='f')//左下跳
+        {
+                  cnt=topOffset;
+                 tmp=leftOffset;
+                  f();
+                  function f()//先往上跳
+                  {
+                    clearInterval(car[0].timer);
+                    car[0].timer=setInterval(function()
+                    {
+                    	topOffset-=5;
+                      car[0].style.top=topOffset+"px";
+                    if(topOffset<=(cnt-114))
+                    {
+                      clearInterval(car[0].timer);
+                       L2();
+                    }
+                    },10)
+                  }
+                  function L2()//向左走一格
+                  {
+                    clearInterval(car[0].timer);
+                    car[0].timer=setInterval(function()
+                    {
+                    	
+                      leftOffset-=5;
+                    car[0].style.left=leftOffset+"px";
+                        if(leftOffset<=(tmp-79))
+                        {
+                          clearInterval(car[0].timer);
+                          Down2();
+                        }
+                    },10)
+
+                  }
+                  function Down2()//自由落体
+                  {
+                    clearInterval(car[0].timer);
+                    car[0].timer=setInterval(function()
+                    {
+                      topOffset+=5;
+                      car[0].style.top=topOffset+"px";
+                      if(topOffset>=(cnt+116))
+                      {
+                        clearInterval(car[0].timer);
+                      }
+                    },10)
+
+                  }
+        }
+        if(temp=='h')//右上跳
+        {
+                    cnt=topOffset;
+                    tmp=leftOffset;
+                   
+                    h();
+                   
+                    function h()//向上跳
+                    {
+                      clearInterval(car[0].timer);
+                      car[0].timer=setInterval(function()
+                      {
+                        topOffset-=5;
+                        car[0].style.top=topOffset+"px";
+                        if(topOffset<=(cnt-180))
+                        {
+                          clearInterval(car[0].timer);
+                          h1();
+                        }
+                      },10)
+                    }
+                    function h1()//向右走一格
+                    {
+                      clearInterval(car[0].timer);
+                      car[0].timer=setInterval(function()
+                      {
+                            leftOffset+=5;
+                            car[0].style.left=leftOffset+"px";
+                            if(leftOffset>=(tmp+79))
+                            {
+                              clearInterval(car[0].timer);
+                              h2();
+                            }
+                      },10)
+                    }
+                    function h2()//自由落体
+                    {
+                      clearInterval(car[0].timer)
+                      car[0].timer=setInterval(function()
+                      {
+                           topOffset+=5;
+                           car[0].style.top=topOffset+"px";
+                           if(topOffset>=(cnt-120))
+                           {
+                            clearInterval(car[0].timer);
+                           }
+                      },10)
+                    }
+                    
+        }
+        if(temp=='i')//右下跳
+        {
+                  cnt=topOffset;
+                  tmp=leftOffset;
+                  i();
+                  function i()//往上跳
+                  {
+                        clearInterval(car[0].timer);
+                        car[0].timer=setInterval(function()
+                        {
+                          topOffset-=5;
+                          car[0].style.top=topOffset+"px";
+                          if(topOffset<=(cnt-114))
+                          {
+                            clearInterval(car[0].timer);
+                            i1();
+                          }
+                        },10)
+                  }
+                  function i1()//向右走
+                  {
+                        clearInterval(car[0].timer);
+                        car[0].timer=setInterval(function()
+                        {
+                            leftOffset+=5;
+                            car[0].style.left=leftOffset+"px";
+                            if (leftOffset>=(tmp+79)) {
+                            
+                              clearInterval(car[0].timer);
+                              i2();
+                            }
+                        },10)
+                  }
+                  function i2()
+                  {
+                    clearInterval(car[0].timer);
+                    car[0].timer=setInterval(function()
+                    {
+                      topOffset+=5;
+                      car[0].style.top=topOffset+"px";
+                      if(topOffset>=(cnt+116))
+                      {
+                        clearInterval(car[0].timer);
+
+                      }
+                    },10)
+
+                  }
+        }
+        if(leftOffset>=546)//order.Score==2
+       	{
+        	$("#heart1").css('display','none'); 
+       	 document.getElementById('change2').src="images/按钮/star2.png";
+       	}
+      
+        if(temp=="J")
+        {
+        	 $("#heart2").css('display','none'); 
+        	 document.getElementById('change2').src="images/按钮/star3.png";
+           flag=1;
+           leftOffset=115;
+    	    topOffset=500;         
+           alert("                                                      成功");
+          return ;//成功标志
+        }
+        if(temp=="r")//碰到墙或触到边界
+        {
+        	 leftOffset=115;
+     	    topOffset=500;
+          flag=2;
+          
+          return ;//结束递归
+        }
+                 
+              
+
+       
+        setTimeout(function()
+              {
+                   Go(start+1,end); 
+               },1200)
+              
+      }
+     
+      
+      
+	</script>
+ </body>
+</html>

@@ -26,8 +26,9 @@ public class EnCodingFilter implements Filter {
 	    //这一行要在中间 
         chain.doFilter(req, resp);
         //设置响应编码为UTF-8
-        resp.setContentType("application/html;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
+        resp.setContentType("application/json;charset=utf-8");
+//        resp.setContentType("application/html;charset=UTF-8");
 	}
 
     @Override
