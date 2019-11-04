@@ -90,6 +90,7 @@
 		                    {
 		                        var order=eval(result);
 		                        var msg = order.msg;
+		                        var flag = order.flag;
 		                        //alert(order.flag);
 		                        if(order.flag == 9){
 		                            document.getElementById("verify").value="";
@@ -112,7 +113,7 @@
 		                          document.getElementById("password").value="";
 		                          document.getElementById("password1").value="";
 		                          document.getElementById("verify").value="";
-		                          document.getElementById("span_id").innerText="注册失败，用户已存在";
+		                          document.getElementById("span_id").innerText="注m册失败，用户已存在";
 		                          }
 		                      else{
 		                    	  document.getElementById("verify").value="";
