@@ -43,6 +43,8 @@ public class LoginServlet extends HttpServlet {
         System.out.println(verify);
         if(!checkVerify.equals(verify)) {
             flag = 9;
+            msg="验证码错误";
+            json.put("msg", msg);
             json.put("flag",flag);
             out.print(json);
             return ;
@@ -69,7 +71,6 @@ public class LoginServlet extends HttpServlet {
 //            response.sendRedirect("login.html");
             System.out.println("密码错误");
             msg="密码错误";
-            URLEncoder.encode(msg,"utf-8");
             json.put("msg", msg);
         }else if(flag == 1){//1可以
             //登录验证成功后，查询用户信息
