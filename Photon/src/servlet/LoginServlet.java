@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,6 +29,7 @@ public class LoginServlet extends HttpServlet {
 	    //创建JSON对象
 	    JSONObject json=new  JSONObject();
 	    //创建输出流对象
+	    response.setContentType("text/html;charset=utf-8");
 	    PrintWriter out=response.getWriter();
 	     String msg="";
         // 获取帐号密码
@@ -67,6 +69,7 @@ public class LoginServlet extends HttpServlet {
 //            response.sendRedirect("login.html");
             System.out.println("密码错误");
             msg="密码错误";
+            URLEncoder.encode(msg,"utf-8");
             json.put("msg", msg);
         }else if(flag == 1){//1可以
             //登录验证成功后，查询用户信息
@@ -98,8 +101,9 @@ public class LoginServlet extends HttpServlet {
             msg="服务器异常，请重试";
             json.put("msg", msg);
         }
+        System.out.println(json);
+        
         out.print(json);
-       
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

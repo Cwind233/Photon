@@ -29,7 +29,6 @@ public class Exchange1_1 extends HttpServlet {
         String upass= request.getParameter("upass");
        
         String Order=request.getParameter("Order");
-        
         Start1_1 start=new Start1_1(Order);
         String order=start.IO();
         

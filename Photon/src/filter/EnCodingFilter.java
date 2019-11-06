@@ -17,19 +17,17 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebFilter(filterName="/EncodingFilter",urlPatterns="/*")
 public class EnCodingFilter implements Filter {
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-	    //先转换
-	    HttpServletRequest req = (HttpServletRequest) request;
-	    HttpServletResponse resp = (HttpServletResponse) response;
-	    //设置请求编码为UTF-8
-	    req.setCharacterEncoding("UTF-8");
-	    //这一行要在中间 
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        //先转换
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse resp = (HttpServletResponse) response;
+        //设置请求编码为UTF-8
+        req.setCharacterEncoding("UTF-8");
+        //这一行要在中间 
         chain.doFilter(req, resp);
         //设置响应编码为UTF-8
         resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("application/json;charset=utf-8");
-//        resp.setContentType("application/html;charset=UTF-8");
-	}
+    }
 
     @Override
     public void destroy() {

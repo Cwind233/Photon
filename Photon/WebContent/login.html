@@ -69,6 +69,7 @@
 			   {
 				   url:"./LoginServlet",
 				   type:"post",
+				   //contentType:text/json,charset=uft-8;
 			       dataType:"json",
 			       data:{"uname":$uname,"password":$upass,"verify":$verify,"checkVerify":checkVerify},
 			       success:function(result,testStatus)
@@ -76,7 +77,7 @@
 			    	  var order=eval(result);
 			    	  var msg = order.msg;
 			    	  //alert(order.flag);
-			    	  
+			    	  alert(decodeURI(order.msg));
 			    	  if(order.flag == 9){
 			    		  document.getElementById("verify").value="";
 			    		  document.getElementById("password").value="";
