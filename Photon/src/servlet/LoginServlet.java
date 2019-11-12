@@ -14,6 +14,7 @@ import org.apache.commons.collections.set.SynchronizedSortedSet;
 import org.json.JSONObject;
 
 import entity.User;
+import service.impl.AddCookieImpl;
 import service.impl.CheckStringServiceImpl;
 import service.impl.UserServiceImpl;
 
@@ -40,6 +41,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         String verify = request.getParameter("verify");
         String checkVerify = request.getParameter("checkVerify");
+        String rememberMe = request.getParameter("rememberMe");//用户是否选择记住我 0不记住 1记住
         
         //输入正确返回 3
         if(CheckStringServiceImpl.CheckLoginString(userName, password, verify) != 3) {
@@ -98,6 +100,10 @@ public class LoginServlet extends HttpServlet {
             json.put("userName", queryUser.getUserName());
             json.put("nickName", queryUser.getNickName());
             json.put("headImage", queryUser.getHeadImage());
+            //如果选择了记住我选项，就写入cookie
+            if(rememberMe.equals("1")) {
+                AddCookieImpl.addCookie_user(queryUser, request, response);
+            }
         }else if(flag == 2) {
 //            request.getSession().setAttribute("message", "登录失败，用户不存在");
 //            response.sendRedirect("logintest.jsp");//test
