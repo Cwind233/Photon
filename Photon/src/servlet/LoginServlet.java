@@ -41,9 +41,8 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         String verify = request.getParameter("verify");
         String checkVerify = request.getParameter("checkVerify");
-        String rememberMe = request.getParameter("rememberMe");//用户是否选择记住我 0不记住 1记住
         
-        //输入正确返回 3
+        //验证用户输入  输入正确返回 3  有bug
         if(CheckStringServiceImpl.CheckLoginString(userName, password, verify) != 3) {
             flag = 8;//输入错误
             msg = "输入信息有误";
@@ -65,7 +64,6 @@ public class LoginServlet extends HttpServlet {
             return ;
         }
         
-        
         //创建用户Dao对象
         User user = new User(userName, password);
         user.setEmail("test");//tests
@@ -75,13 +73,9 @@ public class LoginServlet extends HttpServlet {
         
         //校验密码 返回flag  0失败 1成功 2不存在
         flag = new UserServiceImpl().queryUserPassword(user);
-        System.out.println(flag);
+        System.out.println(flag);//test
         json.put("flag",flag);
         if(flag == 0) {
-//            request.getSession().setAttribute("message", "登录失败，密码错误");
-//            response.sendRedirect("login.jsp");//test
-//            System.out.println("111");
-//            response.sendRedirect("login.html");
             System.out.println("密码错误");
             msg = "密码错误";
             json.put("msg", msg);
@@ -89,31 +83,15 @@ public class LoginServlet extends HttpServlet {
             //登录验证成功后，查询用户信息
             User queryUser = new User();
             queryUser = new UserServiceImpl().queryUserByUserName(user);
-//            //写入session
-//            request.getSession().setAttribute("userName", queryUser.getUserName());
-//            request.getSession().setAttribute("nickName", queryUser.getNickName());
-//            request.getSession().setAttribute("headImage", queryUser.getHeadImage());
-//            request.getSession().setAttribute("message", "登录成功");//test
-//            response.sendRedirect("logintest.jsp");//test
-//           json.put("message", "登录成功");
-//            request.getRequestDispatcher("/Photon/WebContent/startgame.html").forward(request, response);
             json.put("userName", queryUser.getUserName());
             json.put("nickName", queryUser.getNickName());
             json.put("headImage", queryUser.getHeadImage());
-            //如果选择了记住我选项，就写入cookie
-            if(rememberMe.equals("1")) {
-                AddCookieImpl.addCookie_user(queryUser, request, response);
-            }
+            //写入cookie
+            AddCookieImpl.addCookie_user(queryUser, request, response);
         }else if(flag == 2) {
-//            request.getSession().setAttribute("message", "登录失败，用户不存在");
-//            response.sendRedirect("logintest.jsp");//test
-//            response.sendRedirect("login.html");
             msg = "登录失败，用户不存在";
             json.put("msg", msg);
         }else {
-//            request.getSession().setAttribute("message", "服务器异常，请重试");
-//            response.sendRedirect("logintest.jsp");//test
-//            response.sendRedirect("login.html");
             msg = "服务器异常，请重试";
             json.put("msg", msg);
         }

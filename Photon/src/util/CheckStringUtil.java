@@ -26,7 +26,7 @@ public class CheckStringUtil {
     }
     //校验密码  6-12位英文数字
     public static boolean CheckPassword(String password) {
-        String regex = "^[\\\\d\\\\w]{6,12}$";
+        String regex = "^[\\d\\w]{6,12}$";
         if(!isEmpty(password)) {
             return password.matches(regex);
         }
@@ -54,7 +54,6 @@ public class CheckStringUtil {
     }
     
     public static void main(String[] args) {
-
     }
 
 }

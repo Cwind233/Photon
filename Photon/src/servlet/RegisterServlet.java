@@ -25,12 +25,12 @@ public class RegisterServlet extends HttpServlet {
 //        request.setCharacterEncoding("utf-8");
 	    //创建输出流对象 设置编码
 	    response.setContentType("text/html;charset=utf-8");
-	    PrintWriter out=response.getWriter();
+	    PrintWriter out = response.getWriter();
 	    
         // 获取表单信息
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
-//        String nickName = request.getParameter("nickName");                                                     
+//        String nickName = request.getParameter("nickName");                                              
         String email = request.getParameter("email");
         String verify= request.getParameter("verify");
         String checkVerify = request.getParameter("checkVerify");
@@ -58,29 +58,21 @@ public class RegisterServlet extends HttpServlet {
         user.setEmail("test");//test
         user.setNickName("test");//test
         user.setHeadImage("test");//test
-        System.out.println(user.getUserName());//test
+        System.out.println("密码"+user.getPassword());//test
         //0失败 1成功 2已存在 else服务器错误
         flag = new UserServiceImpl().addUser(user);
         System.out.println(flag);//test
         json.put("flag", flag);
         if(flag == 0) {
-//            request.getSession().setAttribute("message", "注册失败，请重试");
-//            response.sendRedirect("register.jsp");
             msg = "注册失败，请重试";
             json.put("msg",msg);
         }else if(flag == 1) {
-//            request.getSession().setAttribute("message", "注册成功");
-//            response.sendRedirect("login.jsp");
             msg = "注册成功";
             json.put("msg",msg);
         }else if(flag == 2) {
-//            request.getSession().setAttribute("message", "注册失败，用户已存在");
-//            response.sendRedirect("register.jsp");
             msg = "注册失败，用户已存在";
             json.put("msg",msg);
         }else {
-//            request.getSession().setAttribute("message", "服务器异常");
-//            response.sendRedirect("register.jsp");
             msg = "服务器异常";
             json.put("msg",msg);
         }

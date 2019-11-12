@@ -17,15 +17,15 @@ public class UserServiceImpl implements IUserService {
     //0失败 1成功 2已存在
     public int addUser(User user) {
         User queryUser = userDao.queryUserByUserName(user);
-        System.out.println(queryUser.getUserName()+"  \n "+user.getUserName());
+        System.out.println("addUser "+queryUser.getUserName()+"\n "+user.getUserName());
         if(user.getUserName().equals(queryUser.getUserName())) {
             flag = 2;
         }else {
             if(userDao.addUser(user)) {
-                System.out.println("添加成功");
+                System.out.println("addUser "+"添加成功");//test
                 flag = 1;
             }else {
-                System.out.println("添加失败");
+                System.out.println("addUser "+"添加失败");//test
                 flag = 0;
             }
         }

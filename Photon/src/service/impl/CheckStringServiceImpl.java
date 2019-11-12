@@ -54,6 +54,6 @@ public class CheckStringServiceImpl implements ICheckStringService{
             flag++;
         }
         return flag;
-        
     }
+
 }

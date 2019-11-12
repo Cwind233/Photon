@@ -22,6 +22,15 @@ public class AddCookieImpl implements IAddCookie {
         //设置保存cookie路径
         userNameCookie.setPath(request.getContextPath()+"/");
         passwordCookie.setPath(request.getContextPath()+"/");
+        String rememberMe = request.getParameter("rememberMe");
+        if(rememberMe == null || rememberMe.equals(false)) {
+            //不保存
+            userNameCookie.setMaxAge(0);
+            passwordCookie.setMaxAge(0);
+        }else {
+            userNameCookie.setMaxAge(7*24*60*60);
+            passwordCookie.setMaxAge(7*24*60*60);
+        }
         //把cookie加入到response
         response.addCookie(userNameCookie);
         response.addCookie(passwordCookie);
