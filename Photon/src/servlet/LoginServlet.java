@@ -73,12 +73,11 @@ public class LoginServlet extends HttpServlet {
         
         //校验密码 返回flag  0失败 1成功 2不存在
         flag = new UserServiceImpl().queryUserPassword(user);
-        System.out.println(flag);//test
+        System.out.println("flag:"+flag);//test
         json.put("flag",flag);
         if(flag == 0) {
             System.out.println("密码错误");
             msg = "密码错误";
-            json.put("msg", msg);
         }else if(flag == 1){//1可以
             //登录验证成功后，查询用户信息
             User queryUser = new User();
@@ -88,14 +87,14 @@ public class LoginServlet extends HttpServlet {
             json.put("headImage", queryUser.getHeadImage());
             //写入cookie
             AddCookieImpl.addCookie_user(queryUser, request, response);
+            msg = "登录成功";
         }else if(flag == 2) {
             msg = "登录失败，用户不存在";
-            json.put("msg", msg);
         }else {
             msg = "服务器异常，请重试";
-            json.put("msg", msg);
         }
-        System.out.println(json);//test
+        json.put("msg", msg);
+        System.out.println("json:"+json);//test
         out.print(json);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将用户名和密码保存至localStorage</title>
+</head>
+<body>
+    用户名：<input type="text" name="username"><br>
+    密码：    <input type="text" name="pwd"><br>
+            <input type="checkbox" name="pwd">是否记录账户密码<br>
+</body>
+<script type="text/javascript">
+    var inp = document.getElementsByTagName('input');
+    //页面加载完成 先判断 localStorage中有无name 和pass 
+    if (localStorage.getItem('name')&&localStorage.getItem('pass')) {
+    //存在將本地localStorage 值 显示在输入框中
+        inp[0].value=localStorage.getItem('name');
+        inp[1].value=localStorage.getItem('pass');
+        inp[2].checked=true;//将选择保存账户密码的复选框更改为选中
+    }
+    //当用户登录时 点击保存账户和密码时 将账户名和密码 记录到localStorage中
+    inp[2].click=function(){
+        if (this.checked) {
+            var n= inp[0].value;
+            var p = inp[1].value;
+            localStorage.setItem('name',n);
+            localStorage.setItem('pass',p);
+        }else{
+        //若不点 则把已经记录到localStorge 中的值删除
+            localStorage.removeItem('name');
+            localStorage.removeItem('pass');
+        }
+    }
+</script>
+</html>

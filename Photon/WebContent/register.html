@@ -5,6 +5,7 @@
 	<title>成为WOWO大家庭的一员</title>
 
 	<link rel="stylesheet" type="text/css" href="css/register-login.css">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 <div id="box"></div>
@@ -26,17 +27,59 @@
 		<div class="login form">
 			<div class="group">
 				<div class="group-ipt email">
-					<input type="email" name="email" id="email" class="ipt" placeholder="设置邮箱地址" required>
+					<input type="email" name="email" id="email" class="ipt" onblur="Email()" placeholder="设置邮箱地址" required >
+					<span id="span_email"></span>
 				</div>
+				<script type="text/javascript">
+					function Email() {
+            //邮箱验证
+            var email = document.getElementById("email").value;
+            var reg1 = /^[\w\d]{1,9}@[\w\d]{1,9}\.[\w]{2,3}$/;
+            if (!reg1.test(email)) {
+                span_email.innerHTML = "错误!如:jack@163.com";
+            }
+            else {
+                span_email.innerHTML = " ";
+            }
+        }
+				</script>
 				<div class="group-ipt user">
 					<input type="text" name="userName" id="user" class="ipt" placeholder="设置账号名" required>
 				</div>
 				<div class="group-ipt password">
-					<input type="password" name="password" id="password" class="ipt" placeholder="设置登录密码" required>
+					<input type="password" onblur="Password()" name="password" id="password" class="ipt" placeholder="设置登录密码" required>
+					<span id="span_pwd"></span>
 				</div>
+				<script type="text/javascript">
+					function Password() {
+            		//密码
+            		var pwd = document.getElementById("password").value;
+           			 var reg = /^[\d\w]{6,12}$/;
+            	if (!reg.test(pwd)) {
+           	     	span_pwd.innerHTML = "请输入6~12以内数字、字母或组合密码";
+            	}
+            	else {
+                	span_pwd.innerHTML = "";
+            	}
+        	}
+				</script>
 				<div class="group-ipt password1">
-					<input type="password" name="repassword" id="password1" class="ipt" placeholder="重复密码" required>
+					<input type="password" onblur="Password2()"  name="repassword" id="password1" class="ipt" placeholder="重复密码" required>
+					<span id="span_pwd2"></span>
 				</div>
+				<script type="text/javascript">
+				function Password2() {
+            //确认密码
+            var pwd = document.getElementById("password").value;
+            var pwd2 = document.getElementById("password1").value;
+            if (pwd != pwd2) {
+                span_pwd2.innerHTML = "两次输入不一致";
+            }
+            else {
+                span_pwd2.innerHTML = "";
+            }
+        }
+        </script>
 				<div class="group-ipt verify">
 					<input type="text" name="verify" id="verify" class="ipt" placeholder="输入验证码" required>
 					<!--<img src="http:#" class="imgcode">  -->
@@ -57,7 +100,6 @@
 <script src='js/background.js' type="text/javascript"></script>
 <script src='js/jquery.min.js' type="text/javascript"></script>
 <script src='js/layer/layer.js' type="text/javascript"></script>
-<script src='js/index.js' type="text/javascript"></script>
 <script>
 
 	$('.imgcode').hover(function(){
