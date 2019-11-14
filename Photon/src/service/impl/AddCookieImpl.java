@@ -12,7 +12,7 @@ import service.IAddCookie;
 
 /**
  * @author HZC
- * 把用户名和密码写入cookie 实现记住我功能
+ *   无用
  */
 public class AddCookieImpl implements IAddCookie {
     public static void addCookie_user(User user, HttpServletRequest request, HttpServletResponse response) {

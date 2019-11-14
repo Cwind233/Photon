@@ -86,7 +86,7 @@ public class LoginServlet extends HttpServlet {
             json.put("nickName", queryUser.getNickName());
             json.put("headImage", queryUser.getHeadImage());
             //写入cookie
-            AddCookieImpl.addCookie_user(queryUser, request, response);
+            //AddCookieImpl.addCookie_user(queryUser, request, response);
             msg = "登录成功";
         }else if(flag == 2) {
             msg = "登录失败，用户不存在";

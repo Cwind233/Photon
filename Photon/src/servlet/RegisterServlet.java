@@ -48,6 +48,8 @@ public class RegisterServlet extends HttpServlet {
         //判断验证码
         if(!checkVerify.equals(verify)) {
             flag = 9;
+            msg = "验证码错误";
+            json.put("msg", msg);;
             json.put("flag",flag);
             out.print(json);
             return ;
