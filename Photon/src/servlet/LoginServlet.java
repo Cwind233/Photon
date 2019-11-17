@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,11 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.collections.set.SynchronizedSortedSet;
 import org.json.JSONObject;
 
 import entity.User;
-import service.impl.AddCookieImpl;
 import service.impl.CheckStringServiceImpl;
 import service.impl.UserServiceImpl;
 
@@ -23,18 +20,17 @@ import service.impl.UserServiceImpl;
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	
-	int flag = -1;
-	JSONObject json = new JSONObject();
-	String msg="";
+	private int flag = -1;
+	private JSONObject json = new JSONObject();
+	private String msg="";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //	    request.setCharacterEncoding("utf-8");
 	    
 	    //创建输出流对象 设置编码
 	    response.setContentType("text/html;charset=utf-8");
-	    PrintWriter out=response.getWriter();
+	    PrintWriter out = response.getWriter();
 	     
         // 获取帐号密码
         String userName = request.getParameter("uname");

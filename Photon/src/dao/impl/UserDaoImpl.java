@@ -26,6 +26,15 @@ public class UserDaoImpl implements IUserDao{
         }
         return false;
     }
+    //更改游戏关卡记录
+    public boolean updateUserGameRound(User user) {
+        String sql = "update personalinformation set game rouond = ? where userName = ?";
+        Object[] params = {user.getGameRound(), user.getUserName()};
+        if(DBUtil.executeUpdate(sql, params)) {
+            return true;
+        }
+        return false;
+    }
     //TODO 更改个人信息 未完成
     public boolean updateUser(User user) {
         String sql = "update personalinformation set nickName  = ?, headImage = ? where userName = ?";
@@ -56,11 +65,12 @@ public class UserDaoImpl implements IUserDao{
                  String nickName = result.getString("nickName");
                  String headImage = result.getString("headImage");
                  String email = result.getString("email");
+                 int gameRound = result.getInt("gameRound");
                  queryUser.setUserName(userName);
                  queryUser.setNickName(nickName);
                  queryUser.setEmail(email);
                  queryUser.setHeadImage(headImage);
-                 System.out.println("queryUserByuserName");
+                 queryUser.setGameRound(gameRound);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,7 +98,31 @@ public class UserDaoImpl implements IUserDao{
                  String password = result.getString("password");
                  queryUser.setUserName(userName);
                  queryUser.setPassword(password);
-                 System.out.println("querypassword");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            DBUtil.closeAll(DBUtil.resultSet, (Statement)DBUtil.pstmt, DBUtil.connection);
+            if(result != null) {
+                try {
+                    result.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return queryUser;
+    }
+    //查询用户关卡记录
+    public User queryGameRoundByUserName(User user) {
+        User queryUser = new User();
+        String sql = "select gameRound from login where userName = ?";
+        String[] params = {user.getUserName()};
+        ResultSet result = DBUtil.executeQuery(sql, params);
+        try {
+            while(result.next()) {
+                 int gameRound = result.getInt("gameRound");
+                 queryUser.setGameRound(gameRound);
             }
         } catch (SQLException e) {
             e.printStackTrace();

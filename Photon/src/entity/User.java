@@ -16,6 +16,7 @@ public class User {
     private String password = null;
     private String email = null;
     private String headImage = null;
+    private int gameRound = 0;
 
     public User() {
         
@@ -68,5 +69,11 @@ public class User {
     //用set方法设置的password没有经过加密
     public void setPassword(String password) {
         this.password = password;
+    }
+    public int getGameRound() {
+        return gameRound;
+    }
+    public void setGameRound(int gameRound) {
+        this.gameRound = gameRound;
     }
 }

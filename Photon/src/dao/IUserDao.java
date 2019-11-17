@@ -12,7 +12,9 @@ public interface IUserDao {
     public boolean deleteUser(User user);
     public boolean updateUser(User user);
     public boolean updateUserPassword(User user);
+    public boolean updateUserGameRound(User user);
     public User queryPasswordByUserName(User user);
     public User queryUserByUserName(User user);
+    public User queryGameRoundByUserName(User user);
     public boolean queryUserByemail(User user);
 }

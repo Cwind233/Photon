@@ -15,4 +15,5 @@ public interface IUserService {
     public int queryUserPassword(User user);
     public User queryUserByUserName(User user);
     public int queryUserByemail(User user);
+    public int updateUserGameRound(User user);
 }

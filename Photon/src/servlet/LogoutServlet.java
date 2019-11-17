@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 //@WebServlet("/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    //清除用户登录
         request.getSession().removeAttribute("userName");

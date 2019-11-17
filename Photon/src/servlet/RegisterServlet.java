@@ -16,10 +16,9 @@ import service.impl.CheckStringServiceImpl;
 import service.impl.UserServiceImpl;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	String msg = "";
-	JSONObject json = new JSONObject(); 
-	int flag = -1;
+	private String msg = "";
+	private JSONObject json = new JSONObject(); 
+	private int flag = -1;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        request.setCharacterEncoding("utf-8");

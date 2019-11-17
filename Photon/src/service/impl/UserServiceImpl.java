@@ -36,13 +36,13 @@ public class UserServiceImpl implements IUserService {
     public int updateUser(User user) {
         User queryUser = userDao.queryUserByUserName(user);
         if(queryUser.getUserName() == null) {
-            flag =2 ;
+            flag = 2;
         }else if(user.getUserName().equals(queryUser.getUserName())) {
             if(userDao.updateUser(user)) {
                 flag = 1;
             }
             else {
-                flag =2;
+                flag = 2;
             }
         }
         return flag;
@@ -66,6 +66,25 @@ public class UserServiceImpl implements IUserService {
         User queryUser = userDao.queryUserByUserName(user);
         return queryUser;
     }
+    //更改游戏关卡记录，先判断关卡大小，只有关卡数大于数据库中的关卡数才更新
+    //1更改成功 0更改失败 2无需更改
+    public int updateUserGameRound(User user) {
+        int newGameRound = user.getGameRound();
+        int oldGameRound = userDao.queryGameRoundByUserName(user).getGameRound();
+        if(newGameRound > oldGameRound) {
+            if(userDao.updateUserGameRound(user)) {
+                flag = 1;
+            }else {
+                flag = 0;
+            }
+        }else {
+            flag = 2;
+        }
+        return flag;
+    }
+    
+    
+    
     //直接查
     public int queryUserByemail(User user) {
         return flag;
