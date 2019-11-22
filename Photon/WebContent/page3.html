@@ -12,6 +12,7 @@
           $(document).ready(function(){
               autoPlayMusic();
               audioAutoPlay();
+              gameLoad();
           });
  
           function openmusic(){
@@ -61,6 +62,32 @@
               if (!isPlay && !media.paused) {
                   media.pause();
               }
+          }
+          function gameLoad(){
+              //关卡保存test
+              localStorage.setItem('gameRound', 1);//test
+              //var gameRound = 1;
+              if(localStorage.getItem('gameRound')){//如果有gameround属性
+                  var gameRound = localStorage.getItem('gameRound');
+                  }
+              if(gameRound > 1){//第二关
+                  var img = document.getElementById("change");
+                  //img[1].src = "img/2.1.jpg"; // 修改src
+                 alert("gameRound"+ "=" + gameRound+"    img"+img);
+                  } 
+              if(gameRound > 2){//第三关
+            	  
+              }
+				if(gameRound > 3){//第四关
+				                  
+				}
+				if(gameRound > 4){//第五关
+				    
+				}
+				if(gameRound > 5){//第六关
+				    
+				}
+
           }
     </script> 
 

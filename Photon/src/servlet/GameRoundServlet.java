@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import entity.User;
 import service.impl.UserServiceImpl;
 
 /**
@@ -27,11 +28,12 @@ public class GameRoundServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
 	    
-		String gameRound = request.getParameter("gameRound");
-		
-//		UserServiceImpl;
-		
-		
+		int gameRound = Integer.parseInt(request.getParameter("gameRound"));
+		String userName = request.getParameter("userName");
+		User user = new User(userName);
+		user.setGameRound(gameRound);
+		//1更改成功 0失败 2无需更改
+		flag = new UserServiceImpl().updateUserGameRound(user);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

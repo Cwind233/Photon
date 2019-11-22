@@ -208,6 +208,14 @@
                                      localStorage.removeItem('userName');
                                      localStorage.removeItem('password');
                                  }
+                            var localGameRound = localStorage.getItem('gameRound');
+                            if(localGameRound){
+                            	if(localGameRound < order.gameRound){//如果后台关卡数比本地大，就修改，否则不修改
+                                     localStorage.setItem('gameRound', order.gameRound);
+                            	}
+                            }
+                            //写sessionStorage
+                              sessionStorage.setItem('userName', $uname);
                               window.location.href='startgame.html';
                             }
                         else if(order.flag==2)
