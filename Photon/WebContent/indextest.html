@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/reset1.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+  *{ 
+   cursor:url(img/free5.cur),auto;
+  }
+ </style>
+ <link rel="stylesheet" href="css/guang.css" media="screen" type="text/css" />
+</head>
+ <body>
+	<main>
+		<div class="wrapper">
+			<div class="content-left">
+				<!-- <div class="btn startBtn"><button></button></div> -->
+				<div class="btn CongraculationBtn" style="display: block;">
+          			<button>
+            			<div class="but" style="margin-left:60px;margin-top:80px;">
+                  			<a href="page1.html"><img src="images/按钮/主页.png" alt="" style="width: 60px;height: 60px;float: left;padding-left: 25px;"></a>
+                  			<a href="#" onclick><img src="images/按钮/重玩.png" alt="" style="width: 60px;height: 60px;float: left;padding-left:25px;"></a>
+                  			<a href="#"><img src="images/按钮/下一关.png" alt="" style="width: 60px;height: 60px;float: left;	padding-left:25px;"></a>
+            			</div>
+          			</button>
+        		</div>
+				<!-- <div class="btn tipBtn1">
+					<button>
+						<div class="tiptxt">
+							 <p>第1步</p>
+						</div>
+					</button>
+				</div>
+				<div class="btn tipBtn2">
+					<button>
+						<div class="tiptxt">
+							 <p>第2步</p>
+						</div>
+					</button>
+				</div>
+				<div class="btn tipBtn3">
+					<button>
+						<div class="tiptxt">
+							 <p>第3步</p>
+						</div>
+					</button>
+				</div>  -->
+				<div class="top-left">
+					<audio style="display:none; height: 0" id="bg-music" preload="auto" src="music/back.mp3" loop="loop"></audio>
+					<ul style="float: left;">
+					 	<li>
+						 <a href="startgame.html"><img id="change" src="images/按钮/主页.png" alt="" width="60px" height="60px"></a>
+						 <!-- 置顶锚点定位 -->
+					 	</li>
+						<li>
+							<a id="change">
+								<div class="close_music_div">
+									<a href="javascript:void(0)" onclick="pauseAuto()" class="f85">
+										<img src="images/按钮/音乐.png" alt="" width="60px" height="60x" >
+									</a> 
+								</div>
+								<div class="open_music_div" style="display: none">
+									<a href="javascript:void(0)" onclick="openmusic()" class="f85">
+										<img src="images/按钮/音乐no.png" alt="" width="60px" height="60x" >
+									</a>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#"><img src="images/按钮/分享.png" alt="" width="60px" height="60px" ondragstart="return false;"></a>
+						</li>
+				 	</ul>
+				</div>
+				<button class="top-right" >
+					<img id="change2" src="images/按钮/star0.png" alt="" ondragstart="return false;">
+				</button>
+				<script type="text/javascript">
+					function change(){
+						 //document.getElementById('change2').src="images/按钮/star2.png";
+					}
+				</script>
+				<div class="CttL-content">
+					 <canvas id="canvas1" width="600" height="640" style="position: absolute; left: 360px;top: 160px;/*background-image:url(images/背景.png);*/ background-size: 100% 100%;"></canvas>
+					 <div class="heart3_2" id="heart2"></div> 
+					  <div class="heart3_1" id="heart1"></div>
+					 <div class="logo3" id="logo1"></div>
+					 <!-- <img  id="logo" src="../images/人物/向上走.png" alt="" width="80px" height="80px"> -->
+					    <!--<div class="logo2"></div>-->
+					  
+				</div>
+				<div class="footer">
+					<ul style="float: left;margin-left:95px;">
+						<li><!-- shiyan -->
+						<button class="on" ><img class="pict" id="go" src="images/按钮/go.png" alt="" width="70px" height="70px" >
+							<div class="wrap"><!--发光体-->
+	            				<div class="light">
+					             <span class="glow"></span>
+					             <span class="flare"></span>
+					             </div>
+	       					</div><!--发光体结束-->
+       					</button>
+						 	
+						 	
+						 	
+						 						
+						</li>
+						<li>
+						 	<button class="onjump"><img  class="pict" id="jump" src="images/按钮/jump.png" alt="" width="70px" height="70px" >
+						 	<div class="wrap"><!--发光体-->
+	            				<div class="light">
+					             <span class="glow"></span>
+					             <span class="flare"></span>
+					             </div>
+	       					</div><!--发光体结束-->
+	       					</button>
+						 	
+						</li>
+						<li>
+						 	<button class="p"><img class="pict" id="p1" src="images/按钮/p1.png" alt="" width="70px" height="70px" >
+						 	<div class="wrap"><!--发光体-->
+	            				<div class="light">
+					             <span class="glow"></span>
+					             <span class="flare"></span>
+					             </div>
+	       					</div><!--发光体结束-->
+						 	</button>
+						 	
+						</li>
+				 	</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="content-right">
+			<div class="CttR-top">
+				<div class="CttRTop-left">
+					<span class="starBtn"><button onclick="Onclick()" id="start"><img src="images/按钮/继续.png" alt="" width="70px" height="70px" ondragstart="return false;">
+					<div class="wrap"><!--发光体-->
+	            	<div class="light">
+					<span class="glow"></span>
+					<span class="flare"></span>
+					        </div>
+	       					</div><!--发光体结束-->
+					</button></span>
+				</div>
+				<div class="CttRTop-left">
+					<button onclick="Reset()"><span class="reset"><img src="images/按钮/暂停.png" alt="" width="70px" height="70px" ondragstart="return false;">
+					<div class="wrap"><!--发光体-->
+	            	<div class="light">
+					<span class="glow"></span>
+					<span class="flare"></span>
+					        </div>
+	       					</div><!--发光体结束-->
+					</span></button>
+				</div>
+			</div>
+			<div class="CttR-content">
+				<div class="CttR-main" id="Main">
+					<div class="mbar"><input type="button" value="主函数" style="background: rgb(255,255,152);font-weight: 700;color: #000;padding:0 5px;"/></div>
+	    			<p class="main" id="div" contenteditable="false" style="margin-bottom: 50px; width:95%;height:217px;overflow-y:scroll"></p>
+				</div>
+				<div class="CttR-proc1">
+					<div class="mbar"><input type="button" value="过程" style="background: rgb(255,255,152);font-weight: 700;color: #000;padding:0 5px; "/></div>
+	    			 <p class="pro1" id="div" contenteditable="flase" style="margin-bottom: 50px;width:95%;height:217px;overflow-y:scroll;overflow-x:hidden;"></p>
+				</div>
+			</div>
+			<div class="CttR-footer">
+				<a href="#" class="onHover">
+				<button class="tips"  onclick="change1()">
+					<img id="tips" src="images/按钮/tips2.png" alt="" >
+					
+				</button>
+				<script type="text/javascript">
+					function change1(){// onclick="change1()"
+						 var pic=document.getElementById('tips');
+						 pic.src="images/按钮/tips.png";
+					}
+				</script>
+				<div class="tips-hover">
+					<!-- <img src="images/按钮/tip框.png" alt=""> -->
+					<p>你很棒哦!</p>
+				</div>
+				
+				</a>
+			</div>
+		</div>
+		</div>
+	</main>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      //音乐自动播放
+          $(document).ready(function(){
+              autoPlayMusic();
+              audioAutoPlay();
+          });
+ 
+          function openmusic(){
+            autoPlayMusic();
+              audioAutoPlay();
+              $(".close_music_div").css({"display":"block"});
+          $(".open_music_div").css({"display":"none"});
+          }
+ 
+          function pauseAuto(){
+            var audio = document.getElementById('bg-music');
+          audio.pause();
+          $(".close_music_div").css({"display":"none"});
+          $(".open_music_div").css({"display":"block"});
+        }
+ 
+          function audioAutoPlay() {
+              var audio = document.getElementById('bg-music');
+              audio.play();
+              document.addEventListener("WeixinJSBridgeReady", function () {
+                  audio.play();
+              }, false);
+          }
+          // 音乐播放
+          function autoPlayMusic() {
+              // 自动播放音乐效果，解决浏览器或者APP自动播放问题
+              function musicInBrowserHandler() {
+                  musicPlay(true);
+                  document.body.removeEventListener('touchstart', musicInBrowserHandler);
+              }
+              document.body.addEventListener('touchstart', musicInBrowserHandler);
+              // 自动播放音乐效果，解决微信自动播放问题
+              function musicInWeixinHandler() {
+                  musicPlay(true);
+                  document.addEventListener("WeixinJSBridgeReady", function () {
+                      musicPlay(true);
+                  }, false);
+                  document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+              }
+              document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+          }
+          function musicPlay(isPlay) {
+              var media = document.querySelector('#bg-music');
+              if (isPlay && media.paused) {
+                  media.play();
+              }
+              if (!isPlay && !media.paused) {
+                  media.pause();
+              }
+          }
+    </script> 
+	<script>
+　　　　　//瓦片地图编辑器获取到的数据
+        var map={
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+             0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
+             0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0,
+             0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0,
+             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+             1, 1, 1, 1, 1, 1, 1,0, 0, 0, 0, 0 ],
+        "height":6,
+         "width":12
+        }
+        var canvas = document.getElementById("canvas1");
+        var ctx = canvas.getContext("2d");
+
+        var W = 60;    //每一块地图块的宽
+        var H = 60;    //每一块地图块的高
+        var l = 0;
+        var t = 0;
+        var img=new Image();
+        img.src='images/地图/块.png';
+        img.onload=function () {
+            for (var i=0; i<map.data.length; i++){
+
+                l = i%map.width*W;     //绘画每一块地图块的X坐标
+                if (i%map.width==0&&i!=0){     //当达到一行是换行，注意第一行是0%0=0；所以应去除第一行换行的情况
+                    t+=H;              //绘画地图块的Y坐标
+                }
+                if (map.data[i]>0){     //当地图块的数据不为0时绘画地图块
+                    ctx.drawImage(img ,l,t,W, H);
+                }
+            }
+        }
+        
+    </script>
+	<script type="text/javascript">
+	 var geth=document.getElementsByTagName("p")[1];
+	 var geth1=document.getElementsByTagName("p")[0];
+    	$(function(){
+    		var select=1;    		
+			 var obj=document.getElementById("div");			
+			
+    	    $('.CttR-proc1').on('click', function(e) {
+    	       // alert($(this).index());
+    	        select=0;
+    	      geth1.style['border'] = '0px';
+       	      geth.style['border'] = '5px solid blue';
+    	        
+    	      
+    	    });
+    	    $('.CttR-main').on('click', function(e) {
+     	       // alert($(this).index());
+     	        select=1;
+     	      geth.style['border'] = '0px';
+     	      geth1.style['border'] = '5px solid blue';
+  			 //geth1.style.border="10px";
+     	      
+     	    });
+    	    $("ul .on").click(function(){
+    	    	if(select==1)
+    	    		{
+    	    		$(".main").append($("#go").clone());
+    	    		}
+    	    	if(select==0)
+    	    		{
+    	    		$(".pro1").append($("#go").clone());
+    	    		}
+   				
+   			});
+   			$("ul .onjump").click(function(){
+   				if(select==1)
+	    		{
+	    		$(".main").append($("#jump").clone());
+	    		}
+	    	if(select==0)
+	    		{
+	    		$(".pro1").append($("#jump").clone());
+	    		}
+   			});
+	    	$("ul .p").click(function(){
+	    		
+   				if(select==1)
+	    		{
+	    		$(".main").append($("#p1").clone());
+	    		}
+	    	if(select==0)
+	    		{
+	    		//$(".pro1").append($("#p1").clone());
+	    		}
+   				//$(".main").append($("#jump").clone());			
+ 			
+ 			});
+ 		});
+	</script>
+	<script>
+		//开启游戏
+		// var startBtn=document.querySelector('.startBtn button');
+		var CongraculationBtn=document.querySelector('.CongraculationBtn button');
+		// var tipBtn1=document.querySelector('.tipBtn1 button');
+		// var tipBtn2=document.querySelector('.tipBtn2 button');
+		// var tipBtn3=document.querySelector('.tipBtn3 button');
+		
+		CongraculationBtn.onclick=function(){
+		CongraculationBtn.parentNode.style.display='none';
+		};
+
+
+		tipBtn1.onclick=function(){
+		tipBtn1.parentNode.style.display='none';
+		tipBtn2.parentNode.style.display='block';
+		};
+
+		tipBtn2.onclick=function(){
+		tipBtn2.parentNode.style.display='none';
+		tipBtn3.parentNode.style.display='block';
+		};
+
+		tipBtn3.onclick=function(){
+		tipBtn3.parentNode.style.display='none';
+		};	
+		//暂停
+		// var snakeWrap=document.getElementById('snakeWrap');
+		// var pauseBtn=document.querySelector('.pauseBtn button');
+		// snakeWrap.onclick=function(){
+		// 	game.pause();
+
+		// 	pauseBtn.parentNode.style.display='block';
+		// }
+
+		// pauseBtn.onclick=function(){
+		// 	game.start();
+		// 	pauseBtn.parentNode.style.display='none';
+		// }
+	</script>
+	</div>
+	<script>
+	var Order="";
+	 var order;
+	 var car = document.getElementsByClassName("logo3");
+	
+	    var temp;
+	    var x=0,y=0,i=0;
+	    var leftOffset=115;
+	    var topOffset=500;
+	    var cnt,flag=0,tmp;
+	
+	  
+	function Get_ID()
+	  {
+		
+	   var links=$("#div img");
+	   var len=links.length;	  
+	   var  links_id= new Array(len);	     
+	   //var links_id=[];	
+	   for(var i=0;i<len;i++)
+	   {	     
+	   	//links_id.push($(links[i]).attr('id'));
+	     links_id[i]=$(links[i]).attr('id');//获取图片的id值
+	     
+	   }
+	   for(var j=0;j<len;j++)
+	   {
+	   	var temp= links_id[j];
+	   	if(temp=="left")
+	   		{
+	   		Order=Order+'3';
+	   		}
+		if(temp=="right")
+   		{
+   		Order=Order+'4';
+   		}
+		if(temp=="go")
+   		{
+   		Order=Order+'1';
+   		}
+		if(temp=="jump")
+   		{
+   		Order=Order+'2';
+   		}
+		if(temp=="p1")
+   		{
+			Order=Order+'p';
+			
+			 var linking=$("#div1 img");
+			   var lens=linking.length;	  
+			   var  linked= new Array(len);	     
+			   //var links_id=[];	
+			   for(var i=0;i<lens;i++)
+			   {	     
+			   	
+			     linked[i]=$(linking[i]).attr('id');//获取图片的id值
+			     
+			   }
+			   for(var j=0;j<len;j++)
+			   {
+			   	 temp= links_id[j];
+			 	if(temp=="left")
+		   		{
+		   		Order=Order+'3';
+		   		}
+			if(temp=="right")
+	   		{
+	   		Order=Order+'4';
+	   		}
+			if(temp=="go")
+	   		{
+	   		Order=Order+'1';
+	   		}
+			if(temp=="jump")
+	   		{
+	   		Order=Order+'2';
+	   		}
+	      }
+   		}
+	       
+	   }
+	   
+	  }
+	
+	  function Onclick()//ajax后端传输数据
+	  {
+		 
+		  document.getElementById("start").disabled=true;	
+		  Order="";
+		  var links=$(".main img");
+		  
+		   var len=links.length;	  
+		   var  links_id= new Array(len);
+		   var  linked;
+		  // $(links[0]).attr('src', 'images/按钮/走发光.png');
+		   //var links_id=[];	
+		   for(var i=0;i<len;i++)
+		   {	     
+		   	//links_id.push($(links[i]).attr('id'));
+		   	 
+		     links_id[i]=$(links[i]).attr('id');//获取图片的id值
+		    
+		     
+		   }
+		   for(var j=0;j<len;j++)
+		   {
+		   	var temp= links_id[j];
+		   	if(temp=="left")
+		   		{
+		   		Order=Order+'3';
+		   		}
+			if(temp=="right")
+	   		{
+	   		Order=Order+'4';
+	   		}
+			if(temp=="go")
+	   		{
+	   		Order=Order+'1';
+	   		}
+			if(temp=="jump")
+	   		{
+	   		Order=Order+'2';
+	   		}
+			if(temp=="p1")
+	   		{
+				
+				Order=Order+'p';  //子函数开始标记
+				 var linking=$(".pro1 img");
+				   var lens=linking.length;	  
+				    linked= new Array(len);	     
+				   //var links_id=[];	
+				   for(var i=0;i<lens;i++)
+				   {	     
+				   	
+				     linked[i]=$(linking[i]).attr('id');//获取图片的id值
+				     
+				   }
+				   for(var k=0;k<lens;k++)
+				   {
+				   	 temp= linked[k];
+				 	if(temp=="left")
+			   		{
+			   		Order=Order+'3';
+			   		}
+				    if(temp=="right")
+		   		   {
+		   		     Order=Order+'4';
+		   		   }
+				    if(temp=="go")
+		   		   {
+		   		    Order=Order+'1';
+		   		   }
+				    if(temp=="jump")
+		   		   {
+		   		    Order=Order+'2';
+		   		   }
+		      }
+				   Order=Order+'x';  //子函数结束标志
+	   		} 
+			
+		   }
+		   
+		 //var $uname=$("#uname").val();
+		// var $upass=$("#upass").val();
+		
+		 var car = document.getElementsByClassName("box2");
+		  $.ajax({
+			  url:"./Exchange1_1",
+			 type:"post",
+			 dataType:"json",		 
+			//data:"uname="+$uname,"upass":$upass,"uname":$uname,
+			data:{"Order":Order},
+			  success:function(result,testStatus)
+			  {	
+				
+				   order=eval(result);
+				   var car = document.getElementsByClassName("logo1");
+				   var links=$(".main img");	
+				   var linked=$(".pro1 img");
+				   var temp;
+				    var x=0,y=0,i=0;
+				    var leftOffset=115;
+				    var topOffset=500;
+				    var cnt,flag=0,tmp;
+				    leftOffset=115;
+					topOffset=500;
+					var flag=1;
+					var pro1=0;
+				    //var order="bbhbbhbhb";
+				  
+				    Go(i,order.order.length,links,0,pro1,flag,linked);
+				   
+				   
+				 
+				    
+			  }
+			
+		  })
+	  
+	 
+	  }
+	/*var car = document.getElementsByClassName("logo1");
+    var temp;
+    var x=0,y=0,i=0;
+    var leftOffset=115;
+    var topOffset=500;
+    var cnt,flag=0,tmp;*/
+    //var order="bbhbbhbhb";
+    
+    //Go(i,order.length);
+     
+     
+      function Go(start,end,links,c,pro1,flag,linked)
+      {
+
+        if (start>=end) {
+        	
+        	 leftOffset=115;
+     	    topOffset=500;
+        	return ;}
+        temp=order.order.charAt(start);
+        		            
+        if(temp=='p')
+        	{
+        	flag=2;
+        	 $(links[c]).attr('src', 'images/按钮/函数发光.png');
+        	c+=1;
+        	}
+        if(temp=='x')
+        	{
+        	flag=1;
+        	
+        	}
+        if(temp=='c')//向左转向
+                   
+        {
+           Turn_left();//添加图
+           function Turn_left()
+           {
+        	   //图片宽高为80px;
+        	   var divs=document.getElementById('logo1');
+        	   //divs.src="../images/人物/跳上色.png";
+        	   divs.style.backgroundImage="url(../images/人物/往左走.png)";
+        	   divs.style.display="block";
+        	  // divs.style.backgroundImage = 'url(../images/人物/往左走.png)';
+        	  
+           }
+        }
+       if(temp=='d')//向右转向
+        {//添加图片
+                 Turn_Right();
+         function Turn_Right()
+         {
+        	 var divs=document.getElementById('logo1');
+           
+           var bigImg = document.createElement("img");
+           bigImg.src="/images/人物/往上走.png";
+      	   bigImg.width="80";
+      	   bigImg.height="80";
+      	  
+      	   divs.appendChild(bigImg);
+         }
+        }
+        if(temp=='b')//向右前进一格
+              {
+        	    // x=x+1; 
+        	   
+        	    if(flag==1)
+        	    	{
+        	    	 $(links[c]).attr('src', 'images/按钮/走发光.png');
+             	     c+=1;
+        	    	}
+        	    if(flag==2)
+        	    	{
+        	    	
+        	    	 $(linked[pro1]).attr('src', 'images/按钮/走发光.png');
+             	     pro1+=1;
+        	    	}
+                tmp=leftOffset;
+               
+                 b();
+                 function b()
+                 {
+                  clearInterval(car[0].timer);
+                   car[0].timer=setInterval(function()
+                   {
+                	   
+                     leftOffset+=5;
+                     car[0].style.left=leftOffset+"px"
+                     if(leftOffset>=(tmp+79))
+                     {
+                      clearInterval(car[0].timer);
+                     }
+                   },30)
+
+                 }
+              }
+       
+        if(temp=='a')//向左前进一格
+        {
+              //x=x-1;
+            tmp=leftOffset;
+            c();
+                  function c()
+                  {
+                    clearInterval(car[0].timer);
+                   car[0].timer=setInterval(function()
+                   {
+                     leftOffset-=5;
+                     car[0].style.left=leftOffset+"px";
+                     if(leftOffset<=(tmp-79))
+                     {
+                      clearInterval(car[0].timer);
+                     }
+                   },30)
+                  }
+        }
+        if(temp=='q')//原地跳
+        {
+        	if(flag==1)
+        		{
+        		$(links[c]).attr('src', 'images/按钮/跳发光.png');
+         	    c+=1;
+        		}
+        	if(flag==2)
+        		{
+        		$(linked[pro1]).attr('src', 'images/按钮/跳发光.png');
+         	    pro1+=1;
+        		}
+          cnt=topOffset;
+          Up();
+          function Up()
+          {
+                   clearInterval(car[0].timer);
+                   car[0].timer=setInterval(function()
+                   {
+                       topOffset-=5;
+                       car[0].style.top=topOffset+"px";
+                       if (topOffset<=(cnt-140)) {//(cnt+140)
+                         clearInterval(car[0].timer);
+                          Down();
+                       }
+                   },10)
+          }
+
+          function Down()//跳回到原处
+          {
+           
+           clearInterval(car[0].timer);
+            car[0].timer=setInterval(function()
+            {
+                      
+                     topOffset+=5;
+                     car[0].style.top=topOffset+"px";
+                     if(topOffset>=cnt)
+                     {                     
+                      clearInterval(car[0].timer);
+                     }
+              
+            },10)
+          }
+          
+        }
+         
+        if(temp=='e')//做上跳
+        {
+          cnt=topOffset;
+          tmp=leftOffset;
+          e();
+                 function e()//向上跳245像素
+                 {
+                     clearInterval(car[0].timer);
+                     car[0].timer=setInterval(function()
+                     {
+                         topOffset-=5;
+                         car[0].style.top=topOffset+"px";
+                         if(topOffset<=(cnt-210))
+                         {
+                          clearInterval(car[0].timer);
+                            L1();
+                         }
+                     },10)
+                 }
+                 function L1()//像左走一格
+                 {
+                     clearInterval(car[0].timer);
+                     car[0].timer=setInterval(function()
+                     {
+                      leftOffset-=5;
+                     car[0].style.left=leftOffset+"px";
+                      if(leftOffset<=(tmp-79))
+                      {
+                        clearInterval(car[0].timer);
+                        Down1();
+                      }
+                     },10)
+                 }
+                 function Down1()//自由落体
+                 {
+                  clearInterval(car[0].timer);
+                  car[0].timer=setInterval(function()
+                  {
+                    topOffset+=5;
+                    car[0].style.top=topOffset+"px";
+                    if(topOffset>=(cnt-116))
+                    {
+                      clearInterval(car[0].timer);
+                    }
+                  },10)
+                  
+                 }
+        }
+        if(temp=='f')//左下跳
+        {
+                  cnt=topOffset;
+                 tmp=leftOffset;
+                  f();
+                  function f()//先往上跳
+                  {
+                    clearInterval(car[0].timer);
+                    car[0].timer=setInterval(function()
+                    {
+                    	topOffset-=5;
+                      car[0].style.top=topOffset+"px";
+                    if(topOffset<=(cnt-114))
+                    {
+                      clearInterval(car[0].timer);
+                       L2();
+                    }
+                    },10)
+                  }
+                  function L2()//向左走一格
+                  {
+                    clearInterval(car[0].timer);
+                    car[0].timer=setInterval(function()
+                    {
+                    	
+                      leftOffset-=5;
+                    car[0].style.left=leftOffset+"px";
+                        if(leftOffset<=(tmp-79))
+                        {
+                          clearInterval(car[0].timer);
+                          Down2();
+                        }
+                    },10)
+
+                  }
+                  function Down2()//自由落体
+                  {
+                    clearInterval(car[0].timer);
+                    car[0].timer=setInterval(function()
+                    {
+                      topOffset+=5;
+                      car[0].style.top=topOffset+"px";
+                      if(topOffset>=(cnt+116))
+                      {
+                        clearInterval(car[0].timer);
+                      }
+                    },10)
+
+                  }
+        }
+        if(temp=='h')//右上跳
+        {
+        	if(flag==1)
+        		{
+        		 $(links[c]).attr('src', 'images/按钮/跳发光.png');
+          	    c+=1;
+        		}
+        	else
+        		{
+        		 $(linked[pro1]).attr('src', 'images/按钮/跳发光.png');
+           	    pro1+=1;
+        		}
+                    cnt=topOffset;
+                    tmp=leftOffset;
+                   
+                    h();
+                   
+                    function h()//向上跳
+                    {
+                      clearInterval(car[0].timer);
+                      car[0].timer=setInterval(function()
+                      {
+                        topOffset-=5;
+                        car[0].style.top=topOffset+"px";
+                        if(topOffset<=(cnt-180))
+                        {
+                          clearInterval(car[0].timer);
+                          h1();
+                        }
+                      },10)
+                    }
+                    function h1()//向右走一格
+                    {
+                      clearInterval(car[0].timer);
+                      car[0].timer=setInterval(function()
+                      {
+                            leftOffset+=5;
+                            car[0].style.left=leftOffset+"px";
+                            if(leftOffset>=(tmp+79))
+                            {
+                              clearInterval(car[0].timer);
+                              h2();
+                            }
+                      },10)
+                    }
+                    function h2()//自由落体
+                    {
+                      clearInterval(car[0].timer)
+                      car[0].timer=setInterval(function()
+                      {
+                           topOffset+=5;
+                           car[0].style.top=topOffset+"px";
+                           if(topOffset>=(cnt-120))
+                           {
+                            clearInterval(car[0].timer);
+                           }
+                      },10)
+                    }
+                    
+        }
+        if(temp=='i')//右下跳
+        {
+                  cnt=topOffset;
+                  tmp=leftOffset;
+                  i();
+                  function i()//往上跳
+                  {
+                        clearInterval(car[0].timer);
+                        car[0].timer=setInterval(function()
+                        {
+                          topOffset-=5;
+                          car[0].style.top=topOffset+"px";
+                          if(topOffset<=(cnt-114))
+                          {
+                            clearInterval(car[0].timer);
+                            i1();
+                          }
+                        },10)
+                  }
+                  function i1()//向右走
+                  {
+                        clearInterval(car[0].timer);
+                        car[0].timer=setInterval(function()
+                        {
+                            leftOffset+=5;
+                            car[0].style.left=leftOffset+"px";
+                            if (leftOffset>=(tmp+79)) {
+                            
+                              clearInterval(car[0].timer);
+                              i2();
+                            }
+                        },10)
+                  }
+                  function i2()
+                  {
+                    clearInterval(car[0].timer);
+                    car[0].timer=setInterval(function()
+                    {
+                      topOffset+=5;
+                      car[0].style.top=topOffset+"px";
+                      if(topOffset>=(cnt+116))
+                      {
+                        clearInterval(car[0].timer);
+
+                      }
+                    },10)
+
+                  }
+        }
+        if(leftOffset>=546)//order.Score==2
+       	{
+        	$("#heart1").css('display','none'); 
+       	 document.getElementById('change2').src="images/按钮/star2.png";
+       	}
+      
+        if(temp=="J")  //成功通关
+        {
+        	 $("#heart2").css('display','none'); 
+        	 document.getElementById('change2').src="images/按钮/star3.png";
+           flag=1;
+           leftOffset=115;
+    	    topOffset=500;         
+           //alert("                                                      成功");
+         var CongraculationBtn1=document.querySelector('.CongraculationBtn button');
+         CongraculationBtn1.parentNode.style.display='block';
+          return ;//成功标志
+    
+        }
+        if(temp=="r")//碰到墙或触到边界
+        {
+        	 leftOffset=115;
+     	    topOffset=500;
+          flag=2;
+          
+          return ;//结束递归
+        }
+                 
+              
+
+       
+        setTimeout(function()
+              {
+                   Go(start+1,end,links,c,pro1,flag,linked); 
+               },1200)
+              
+      }
+          
+	</script>
+	<script>
+	 function Reset()
+	  {
+		 document.getElementById("start").disabled=false;	
+		 var car = document.getElementsByClassName("logo3");
+		 car[0].style.left=83+"px";
+		 car[0].style.top=500+"px";
+		 var obj=document.getElementById("div");
+		 var links=$("#div img");
+		 var len=links.length;
+		 var cnt=0;
+		 $("#heart2").css('display','block');
+		 $("#heart1").css('display','block'); 
+		links.remove();
+		 //for(var cnt=0;cnt<len;cnt++)
+			 {
+			// obj.removeChild(obj.childNodes[cnt]);
+			 }
+		 
+		// obj.removeChild(obj.childNodes[1]);
+			
+		 	 
+	  }
+	</script>
+	<script type="text/javascript">
+			//window.onload表示等页面标签内容加载完之后再加载window.onload里面的内容
+			window.onload = function(){
+				//分别设置div在x和y方向的的初速度
+				var speedX = 2;
+				var speedY = 3;
+				//获取div标签
+				var div = document.getElementById("logo1");
+				div.style.left = 83 + "px";
+				div.style.top = 100 + "px";
+				//获取按钮
+				//var btn = document.getElementById("btn");
+				//定义点击事件			
+					startMove();
+				//定义一个空的定时器，防止上次事件定时器的返回值叠加
+				var timer = null;
+				//定义点击事件函数
+				function startMove(){
+					//内部清空计时器，防止上次返回值叠加
+					clearInterval(timer);
+					//设置计时器
+					timer = setInterval(function(){
+						//竖直方向上反向运动时速度为负值，为了达到反弹逐渐速度逐渐减小的效果，可以在向下碰撞后速度加上一个正值
+						speedY += 6;
+						//分别获取div距离左边距和上边距的动态距离
+						var iW = div.offsetLeft + speedX;
+						var iH = div.offsetTop + speedY;
+						//获取div水平方向运动的最大距离，即不包含边框的浏览器窗口的宽度clientWidth减去div的宽度
+						var w = 400 - div.offsetWidth;
+						//获取div垂直方向运动的最大距离
+						var h =  580- div.offsetHeight;
+						//当动态宽度达到div最大运动宽度范围时，立刻转换速度为反方向负值，同时把w的值负值给iw，因为w是可视窗口范围，当w缩小时，iw保存的还是上一次窗口条件下的距离左边距的距离  document.documentElement.clientHeight
+						if (iW >= w||iW <= 0){
+							speedX = -speedX;
+							iW = w;
+						}
+						//当动态高度达到div最大运动高度范围时，立刻转向速度，同时将x方向速度乘以0.8，使之速度逐渐减小		
+                        if (iH >= h||iH <= 0){
+                        	speedY = -speedY;
+                        	iH = h;
+                        	speedX *= 0.1;
+                        }
+ 						//由于div.style.left和div.style.top还储存这上一次或第一次的计时后的值，此次计时后应把新的值储存起来，使div出现动态效果
+						div.style.left = iW + "px";
+						div.style.top = iH + "px";
+					},30);
+				}
+			}
+		</script>
+ </body>
+</html>

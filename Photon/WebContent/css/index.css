@@ -47,17 +47,62 @@ main {
   margin-left: -100px;
   margin-top: -40px;
 }
-.pauseBtn{
-  display: none;
+.CongraculationBtn{
+  display:none;
 }
-.pauseBtn button{
-  width: 200px;
-  height: 90px;
-  background-image: url(../images/按钮/继续.png);
-  margin-left: -70px;
-  margin-top: -35px;
+.CongraculationBtn1{
+  display:none;
 }
-
+.CongraculationBtn button{
+  width: 400px;
+  height: 300px;
+  background-image: url(../images/按钮/恭喜通关.png);
+  margin-left: -180px;
+  margin-top: -180px;
+}
+.CongraculationBtn1 button{
+  width: 400px;
+  height: 300px;
+  background-image: url(../images/按钮/恭喜通关.png);
+  margin-left: -180px;
+  margin-top: -180px;
+}
+.tipBtn1{
+  display:none;
+}
+.tipBtn1 button{
+  width: 400px;
+  height: 300px;
+  background-image: url(../images/按钮/恭喜通关.png);
+  margin-left: -180px;
+  margin-top: -180px;
+}
+.tipBtn2{
+  display:none;
+}
+.tipBtn2 button{
+  width: 400px;
+  height: 300px;
+  background-image: url(../images/按钮/恭喜通关.png);
+  margin-left: -180px;
+  margin-top: -180px;
+}
+.tipBtn3{
+  display:none;
+}
+.tipBtn3 button{
+  width: 400px;
+  height: 300px;
+  background-image: url(../images/按钮/恭喜通关.png);
+  margin-left: -180px;
+  margin-top: -180px;
+}
+.tiptxt p{
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  padding-top: 100px;
+}
 #cavsElem{
     position: absolute;
     top: 170px;
@@ -88,23 +133,35 @@ main {
 .CttL-content{
   position: relative;
 }
+.logo3{
+  position: absolute;
+  background: url(../images/人物/wo1.gif)  no-repeat;
+  background-size: 100% 100%;
+  width: 90px;
+  height: 90px;
+  top:  485px;
+  left: 83px;
+}
+top: 500px;
+  left: 83px;
 .logo1{
   position: absolute;
   background: url(../images/人物/站上色.png)  no-repeat;
   background-size: 100% 100%;
   width: 80px;
   height: 80px;
-  top: 500px;
-  left: 83px;
+  top: 410px;
+  left: 250px;
 }
+ 
 .logo2{
   position: absolute;
-  background: url(../images/人物/跳上色.png)  no-repeat;
+  background: url(../images/人物/站上色.png)  no-repeat;
   background-size: 100% 100%;
   width: 80px;
   height: 80px;
-  top: 380px;
-  left: 280px;
+  top: 490px;
+  left: 300px;
 }
 .heart1{
   position: absolute;
@@ -112,17 +169,45 @@ main {
   background-size: 100% 100%;
   width: 80px;
   height: 80px;
-  top: 260px;
-  left: 640px;
+  top: 410px;
+  left: 690px;
+  border-radius: 50%;
+  box-shadow: rgb(11,234,235) 0px 0px 18px inset;
 }
+
+
 .heart2{
   position: absolute;
   background: url(../images/地图/心.png)  no-repeat;
   background-size: 100% 100%;
   width: 80px;
   height: 80px;
+  top: 360px;
+  left:500px;
+  border-radius: 50%;
+  box-shadow: rgb(11,234,235) 0px 0px 18px inset;
+}
+.heart3_1{
+  position: absolute;
+  background: url(../images/地图/心.png)  no-repeat;
+  background-size: 100% 100%;
+  width: 80px;
+  height: 80px;
+  top: 260px;
+  left: 640px;
+  border-radius: 50%;
+  box-shadow: rgb(11,234,235) 0px 0px 18px inset;
+}
+.heart3_2{
+  position: absolute;
+  background: url(../images/地图/心.png)  no-repeat;
+  background-size: 100% 100%;
+  width: 80px;
+  height: 80px;
   top: 140px;
-  left: 800px;
+  left: 820px;
+  border-radius: 50%;
+  box-shadow: rgb(11,234,235) 0px 0px 18px inset;
 }
 
 button {
@@ -138,7 +223,7 @@ button {
   }
 .footer {
     top: 450px;
-    left: 170px;
+    left: 300px;
     position: relative;
     display: inline-block;
     width: 100%;
@@ -220,20 +305,47 @@ button {
   position:relative;
   padding-right: 50px;
 }
-
 .CttR-footer .tips-hover{
-  width: 400px;
-  height: 300px;
+  width: 300px;
+  height:200px;
   position: absolute;
-  top: 350px;
-  right: 10px;
+  top: 280px;
+  right: 100px;
   display: none;
 }
-.CttR-footer .tips-hover img{
-  width: 400px;
-  height: 300px;
-}
 
+.CttR-footer .tips-hover  p{
+  width: 300px;
+  height:200px;
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+  padding-top: 100px;
+  padding-left:100px;
+  background-image: url(../images/按钮/tip框.png);
+  background-size: 100% 100%;
+}
 .CttR-footer a:hover .tips-hover{
   display: block;
+}
+
+.logo{
+  height: 200px;
+  width: 200px;
+  margin-top:170px;
+  margin-left:130px;
+  background-image: url(../images/人物/hulogo.png);
+  background-size: 100% 100%;
+  border-radius: 50%;
+  box-shadow: rgb(11,234,235) 0px 0px 18px inset;
+}
+.goss{
+	float:left;
+	  height: 200px;
+  width: 200px;
+}
+.jumps{
+	float:left;
+	  height: 200px;
+  width: 200px;
 }

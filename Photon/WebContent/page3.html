@@ -5,6 +5,7 @@
     <title>page3</title>
     <link rel="stylesheet" href="css/page3.css" media="screen" type="text/css" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
       
@@ -65,29 +66,56 @@
           }
           function gameLoad(){
               //关卡保存test
-              localStorage.setItem('gameRound', 1);//test
-              //var gameRound = 1;
+              //localStorage.setItem('gameRound',6);//test
+              var gameRound = 1;
               if(localStorage.getItem('gameRound')){//如果有gameround属性
                   var gameRound = localStorage.getItem('gameRound');
                   }
-              if(gameRound > 1){//第二关
-                  var img = document.getElementById("change");
-                  //img[1].src = "img/2.1.jpg"; // 修改src
-                 alert("gameRound"+ "=" + gameRound+"    img"+img);
-                  } 
+             if(gameRound > 1){//第二关
+                  document.getElementById("change2").src="img/2.1.png";
+                  }
               if(gameRound > 2){//第三关
-            	  
+            	  document.getElementById("change3").src="img/3.1.png";
               }
 				if(gameRound > 3){//第四关
-				                  
+					document.getElementById("change4").src="img/4.1.png";    
 				}
 				if(gameRound > 4){//第五关
-				    
+					document.getElementById("change5").src="img/5.1.png";
 				}
 				if(gameRound > 5){//第六关
-				    
+					document.getElementById("change6").src="img/6.1.png";
 				}
-
+          }
+          function game_2(){
+        	  var gameRound = localStorage.getItem('gameRound');
+        	  if(gameRound > 1){
+        		  window.location.href='login.html';
+        		    }
+          }
+          function game_3(){
+              var gameRound = localStorage.getItem('gameRound');
+              if(gameRound > 2){
+                  window.location.href='login.html';
+                    }
+          }
+          function game_4(){
+              var gameRound = localStorage.getItem('gameRound');
+              if(gameRound > 3){
+                  window.location.href='login.html';
+                    }
+          }
+          function game_5(){
+              var gameRound = localStorage.getItem('gameRound');
+              if(gameRound > 4){
+                  window.location.href='login.html';
+                    }
+          }
+          function game_6(){
+              var gameRound = localStorage.getItem('gameRound');
+              if(gameRound > 5){
+                  window.location.href='login.html';
+                    }
           }
     </script> 
 
@@ -95,7 +123,7 @@
   <body>
     <div id="box"></div>
     <audio style="display:none; height: 0" id="bg-music" controls="controls" autoplay="" preload="auto" src="music/back.mp3" loop="loop"></audio>
-      <div class="but">
+      <div class="but" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
         
         <a href="startgame.html" class="" id="">
           <img id="change" src="img/主页.png" alt="">
@@ -110,13 +138,15 @@
 
     <div class="main">
       
-      <div class="maincontent">
+      <div class="maincontent" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 
         <div class="content1">
-          <a href="index.html"><button onclick="playSound()" class="qai1" id="qia1" >
-            <img id="change" src="img/1.png">
+          <a href="index.html">
+          <button onclick="playSound()" class="qai1" id="qia1" >
+            <img id="change1" src="img/1.png">
             <audio id="audio_intogame" src="music/intogame.mp3"></audio>
-          </button></a>
+          </button>
+          </a>
         </div>
         <script type="text/javascript">
           function playSound() {
@@ -124,44 +154,52 @@
         }
         </script>
 
-        <div class="content1">
+        <div class="content1"> <a onclick="game_2()">
           <button onclick="playSound()" class="qai1" id="qia1" >
-            <img id="change" src="img/2.png">
+            <img id="change2" src="img/2.png">
             <audio id="audio_intogame" src="music/intogame.mp3"></audio>
           </button>
+          </a>
         </div>
 
-        <div class="content1">
+        <div class="content1"><a onclick="game_3()">
           <button onclick="playSound()" class="qai1" id="qia1" >
-            <img id="change" src="img/3.png">
+            <img id="change3" src="img/3.png">
             <audio id="audio_intogame" src="music/intogame.mp3"></audio>
           </button>
+          </a>
         </div>
 
-        <div class="content1">
+        <div class="content1"><a onclick="game_4()">
           <button onclick="playSound()" class="qai1" id="qia1" >
-            <img id="change" src="img/4.png">
+            <img id="change4" src="img/4.png">
             <audio id="audio_intogame" src="music/intogame.mp3"></audio>
           </button>
+          </a>
         </div>
 
-        <div class="content1">
+        <div class="content1"><a onclick="game_5()">
           <button onclick="playSound()" class="qai1" id="qia1" >
-            <img id="change" src="img/5.png">
+            <img id="change5" src="img/5.png">
             <audio id="audio_intogame" src="music/intogame.mp3"></audio>
           </button>
+          </a>
         </div>
 
-        <div class="content1">
+        <div class="content1"><a onclick="game_6()">
           <button onclick="playSound()" class="qai1" id="qia1" >
-            <img id="change" src="img/6.png">
+            <img id="change6" src="img/6.png">
             <audio id="audio_intogame" src="music/intogame.mp3"></audio>
           </button>
+          </a>
         </div>
       </div>
     </div>
-     <div class="hulogo">
-        <img src="img/hulogo.png">
+    
+    
+     <div class="hulogo" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+        
+        <img src="img/hulogo.png"  style="cursor: pointer;"/>
       </div>
     <script src='js/particles.js' type="text/javascript"></script>
 <script src='js/background.js' type="text/javascript"></script>
