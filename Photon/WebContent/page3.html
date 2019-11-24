@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/page3.css" media="screen" type="text/css" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     
-    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script>
       
       //音乐自动播放
@@ -69,7 +69,7 @@
               //localStorage.setItem('gameRound',6);//test
               var gameRound = 1;
               if(localStorage.getItem('gameRound')){//如果有gameround属性
-                  var gameRound = localStorage.getItem('gameRound');
+                  gameRound = localStorage.getItem('gameRound');
                   }
              if(gameRound > 1){//第二关
                   document.getElementById("change2").src="img/2.1.png";
@@ -90,13 +90,13 @@
           function game_2(){
         	  var gameRound = localStorage.getItem('gameRound');
         	  if(gameRound > 1){
-        		  window.location.href='login.html';
+        		  window.location.href='index2.html';
         		    }
           }
           function game_3(){
               var gameRound = localStorage.getItem('gameRound');
               if(gameRound > 2){
-                  window.location.href='login.html';
+                  window.location.href='index3(2).html';
                     }
           }
           function game_4(){
@@ -141,7 +141,7 @@
       <div class="maincontent" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 
         <div class="content1">
-          <a href="index.html">
+          <a href="index1.html">
           <button onclick="playSound()" class="qai1" id="qia1" >
             <img id="change1" src="img/1.png">
             <audio id="audio_intogame" src="music/intogame.mp3"></audio>

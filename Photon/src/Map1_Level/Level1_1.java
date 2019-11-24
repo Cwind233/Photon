@@ -49,23 +49,23 @@ public class Level1_1 {
 	{
 		for(int i=0;i<3;i++)
 		{
-			Map1_1[7][i]=1;
+			Map1_1[8][i]=1;
 		}
 		for(int i=3;i<6;i++)
 		{
-			Map1_1[5][i]=1;
+			Map1_1[6][i]=1;
 		}
-		Map1_1[6][2]=1;
-		Map1_1[4][5]=1;
-		Map1_1[2][7]=1;
-		Map1_1[1][10]=1;
+		Map1_1[7][2]=1;
+		Map1_1[5][5]=1;
+		Map1_1[3][7]=1;
+		Map1_1[2][10]=1;
 		for(int i=8;i<10;i++)
 		{
-			Map1_1[1][i]=1;
+			Map1_1[2][i]=1;
 		}
-		for(int i=6;i<9;i++)
+		for(int i=6;i<8;i++)
 		{
-			Map1_1[3][i]=1;
+			Map1_1[4][i]=1;
 		}
 		
 		
@@ -75,38 +75,38 @@ public class Level1_1 {
 	{
 		for(int i=0;i<12;i++)
 		{
-			Map1_1[8][i]=4;
+			Map1_1[9][i]=4;
 		}
 		for(int i=3;i<8;i++)
 		{
-			Map1_1[6][i]=4;
 			Map1_1[7][i]=4;
+			Map1_1[8][i]=4;
 		}
 		for(int i=6;i<8;i++)
 		{
-			Map1_1[4][i]=4;
 			Map1_1[5][i]=4;
+			Map1_1[6][i]=4;
 		}
 		for(int i=8;i<11;i++)
 		{
-			Map1_1[2][i]=4;
+			Map1_1[3][i]=4;
 		}
 		
-		Map1_1[3][8]=4;
+		Map1_1[4][7]=4;
 		
 	}
 	public void setBlood()
 	{
-		Map1_1[5][4]=5;
-		Map1_1[1][9]=5;
-		Map1_1[3][7]=5;
+		Map1_1[6][4]=5;
+		Map1_1[2][9]=5;
+		Map1_1[4][7]=5;
 		
 	}
 	//设置初始位置
 	public void SetPrepare(int num)
 	{
 		//传入英雄编号
-		Map1_1[7][1]=num;
+		Map1_1[8][1]=num;
 	}
 	//设置陷阱
 	public void SetDrop()

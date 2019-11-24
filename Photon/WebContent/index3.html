@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/index(1)(1).css">
 	<link rel="stylesheet" href="css/reset1.css">
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<style type="text/css">
@@ -18,6 +18,11 @@
 		<div class="wrapper">
 			<div class="content-left">
 				<!-- <div class="btn startBtn"><button></button></div> -->
+				<div class="tipsBtn"><button></button></div>
+				<div class="tips1"  style="position: absolute;left: 50px;top:200px;">
+					<!-- <img src="images/按钮/tip框.png" alt=""> -->
+					<p>你撞墙啦!</p>
+				</div>
 				<div class="btn CongraculationBtn" style="display: block;">
           			<button>
             			<div class="but" style="margin-left:60px;margin-top:80px;">
@@ -119,7 +124,7 @@
 						 	
 						</li>
 						<li>
-						 	<button class="p1"><img class="pict" id="p1" src="images/按钮/p1.png" alt="" width="70px" height="70px" >
+						 	<button class="p"><img class="pict" id="p1" src="images/按钮/p1.png" alt="" width="70px" height="70px" >
 						 	<div class="wrap"><!--发光体-->
 	            				<div class="light">
 					             <span class="glow"></span>
@@ -147,7 +152,18 @@
 					</button></span>
 				</div>
 				<div class="CttRTop-left">
-					<button onclick="Reset()"><span class="reset"><img src="images/按钮/暂停.png" alt="" width="70px" height="70px" ondragstart="return false;">
+					<button onclick="reset2()" style="background-color: rgb(218,235,226);"><span class="C"><img src="images/按钮/删除.png" alt="" width="70px" height="70px" ondragstart="return false;">
+					<div class="wrap"><!--发光体-->
+	            	<div class="light">
+					<span class="glow"></span>
+					<span class="flare"></span>
+					        </div>
+	       					</div><!--发光体结束-->
+					</span>
+					</button>
+				</div>
+				<div class="CttRTop-left">
+					<button onclick="paused()"><span class="reset"><img src="images/按钮/暂停.png" alt="" width="70px" height="70px" ondragstart="return false;">
 					<div class="wrap"><!--发光体-->
 	            	<div class="light">
 					<span class="glow"></span>
@@ -168,6 +184,9 @@
 				</div>
 			</div>
 			<div class="CttR-footer">
+			<button class="reset2"  onclick="reset3()">
+					<img id="reset2" src="images/按钮/restart.png" alt="" >
+				</button>
 				<a href="#" class="onHover">
 				<button class="tips"  onclick="change1()">
 					<img id="tips" src="images/按钮/tips2.png" alt="" >
@@ -282,10 +301,11 @@
         
     </script>
 	<script type="text/javascript">
-	 var geth=document.getElementsByTagName("p")[1];
-	 var geth1=document.getElementsByTagName("p")[0];
+	 var geth=document.getElementsByTagName("p")[2];
+	 var geth1=document.getElementsByTagName("p")[1];
+	 var select=1; 
     	$(function(){
-    		var select=1;    		
+    		   		
 			 var obj=document.getElementById("div");			
 			
     	    $('.CttR-proc1').on('click', function(e) {
@@ -324,20 +344,18 @@
 	    		{
 	    		$(".pro1").append($("#jump").clone());
 	    		}
-	    	$("ul .p1").click(function(){
+   			});
+	    	$("ul .p").click(function(){
+	    		
    				if(select==1)
 	    		{
 	    		$(".main").append($("#p1").clone());
 	    		}
 	    	if(select==0)
 	    		{
-	    		$(".pro1").append($("#p1").clone());
+	    		//$(".pro1").append($("#p1").clone());
 	    		}
-   				//$(".main").append($("#jump").clone());
-   				
-   			});
-    	    
- 			
+   				//$(".main").append($("#jump").clone());			
  			
  			});
  		});
@@ -352,6 +370,31 @@
 		
 		CongraculationBtn.onclick=function(){
 		CongraculationBtn.parentNode.style.display='none';
+		
+		var divs = document.getElementById("logo1");
+		divs.style.display='block';
+		divs.style.left = 1 + "px";
+		divs.style.top = 480 + "px";
+		var leftoff=0;
+			startMove();
+		//定义一个空的定时器，防止上次事件定时器的返回值叠加
+		//var cos = null;
+		//定义点击事件函数
+		 function startMove()
+         {
+          clearInterval(divs.timer);
+           divs.timer=setInterval(function()
+           {
+        	   
+             leftoff+=5;
+            divs.style.left=leftoff+"px";
+             if(leftoff>=79)
+             {
+              clearInterval(divs.timer);
+             }
+           },30)
+
+         }
 		};
 
 
@@ -384,9 +427,11 @@
 	</script>
 	</div>
 	<script>
+	 var pause=0;
 	var Order="";
 	 var order;
 	 var car = document.getElementsByClassName("logo3");
+	
 	    var temp;
 	    var x=0,y=0,i=0;
 	    var leftOffset=115;
@@ -428,16 +473,38 @@
    		}
 		if(temp=="p1")
    		{
-			 var links=$("#div img");
-			   var len=links.length;	  
-			   var  links_id= new Array(len);	     
+			Order=Order+'p';
+			
+			 var linking=$("#div1 img");
+			   var lens=linking.length;	  
+			   var  linked= new Array(len);	     
 			   //var links_id=[];	
-			   for(var i=0;i<len;i++)
+			   for(var i=0;i<lens;i++)
 			   {	     
-			   	//links_id.push($(links[i]).attr('id'));
-			     links_id[i]=$(links[i]).attr('id');//获取图片的id值
+			   	
+			     linked[i]=$(linking[i]).attr('id');//获取图片的id值
 			     
 			   }
+			   for(var j=0;j<len;j++)
+			   {
+			   	 temp= links_id[j];
+			 	if(temp=="left")
+		   		{
+		   		Order=Order+'3';
+		   		}
+			if(temp=="right")
+	   		{
+	   		Order=Order+'4';
+	   		}
+			if(temp=="go")
+	   		{
+	   		Order=Order+'1';
+	   		}
+			if(temp=="jump")
+	   		{
+	   		Order=Order+'2';
+	   		}
+	      }
    		}
 	       
 	   }
@@ -446,12 +513,14 @@
 	
 	  function Onclick()//ajax后端传输数据
 	  {
+		 
 		  document.getElementById("start").disabled=true;	
 		  Order="";
-		  var links=$("#div img");
-		 
+		  var links=$(".main img");
+		  
 		   var len=links.length;	  
 		   var  links_id= new Array(len);
+		   var  linked;
 		  // $(links[0]).attr('src', 'images/按钮/走发光.png');
 		   //var links_id=[];	
 		   for(var i=0;i<len;i++)
@@ -481,10 +550,48 @@
 	   		{
 	   		Order=Order+'2';
 	   		}
-		       
+			if(temp=="p1")
+	   		{
+				
+				Order=Order+'p';  //子函数开始标记
+				 var linking=$(".pro1 img");
+				   var lens=linking.length;	  
+				    linked= new Array(len);	     
+				   //var links_id=[];	
+				   for(var i=0;i<lens;i++)
+				   {	     
+				   	
+				     linked[i]=$(linking[i]).attr('id');//获取图片的id值
+				     
+				   }
+				   for(var k=0;k<lens;k++)
+				   {
+				   	 temp= linked[k];
+				 	if(temp=="left")
+			   		{
+			   		Order=Order+'3';
+			   		}
+				    if(temp=="right")
+		   		   {
+		   		     Order=Order+'4';
+		   		   }
+				    if(temp=="go")
+		   		   {
+		   		    Order=Order+'1';
+		   		   }
+				    if(temp=="jump")
+		   		   {
+		   		    Order=Order+'2';
+		   		   }
+		      }
+				   Order=Order+'x';  //子函数结束标志
+	   		} 
+			
 		   }
+		   
 		 //var $uname=$("#uname").val();
 		// var $upass=$("#upass").val();
+		
 		 var car = document.getElementsByClassName("box2");
 		  $.ajax({
 			  url:"./Exchange1_1",
@@ -497,8 +604,8 @@
 				
 				   order=eval(result);
 				   var car = document.getElementsByClassName("logo1");
-				   var links=$("#div img");
-				  
+				   var links=$(".main img");	
+				   var linked=$(".pro1 img");
 				   var temp;
 				    var x=0,y=0,i=0;
 				    var leftOffset=115;
@@ -506,9 +613,11 @@
 				    var cnt,flag=0,tmp;
 				    leftOffset=115;
 					topOffset=500;
+					var flag=1;
+					var pro1=0;
 				    //var order="bbhbbhbhb";
-				    
-				    Go(i,order.order.length,links,0);
+				  
+				    Go(i,order.order.length,links,0,pro1,flag,linked,pause);
 				   
 				   
 				 
@@ -528,19 +637,32 @@
     //var order="bbhbbhbhb";
     
     //Go(i,order.length);
+    
      
-     
-      function Go(start,end,links,c)
+      function Go(start,end,links,c,pro1,flag,linked,pause)
       {
-
+         
         if (start>=end) {
         	
         	 leftOffset=115;
      	    topOffset=500;
         	return ;}
         temp=order.order.charAt(start);
-        		            
-        
+        if(pause==1)
+        	{
+        	return ;
+        	}
+        if(temp=='p')
+        	{
+        	flag=2;
+        	 $(links[c]).attr('src', 'images/按钮/函数发光.png');
+        	c+=1;
+        	}
+        if(temp=='x')
+        	{
+        	flag=1;
+        	
+        	}
         if(temp=='c')//向左转向
                    
         {
@@ -573,9 +695,19 @@
         }
         if(temp=='b')//向右前进一格
               {
-        	    // x=x+1;
-        	    $(links[c]).attr('src', 'images/按钮/走发光.png');
-        	    c+=1;
+        	    // x=x+1; 
+        	   
+        	    if(flag==1)
+        	    	{
+        	    	 $(links[c]).attr('src', 'images/按钮/走发光.png');
+             	     c+=1;
+        	    	}
+        	    if(flag==2)
+        	    	{
+        	    	
+        	    	 $(linked[pro1]).attr('src', 'images/按钮/走发光.png');
+             	     pro1+=1;
+        	    	}
                 tmp=leftOffset;
                
                  b();
@@ -617,8 +749,16 @@
         }
         if(temp=='q')//原地跳
         {
-        	$(links[c]).attr('src', 'images/按钮/跳发光.png');
-     	    c+=1;
+        	if(flag==1)
+        		{
+        		$(links[c]).attr('src', 'images/按钮/跳发光.png');
+         	    c+=1;
+        		}
+        	if(flag==2)
+        		{
+        		$(linked[pro1]).attr('src', 'images/按钮/跳发光.png');
+         	    pro1+=1;
+        		}
           cnt=topOffset;
           Up();
           function Up()
@@ -756,8 +896,16 @@
         }
         if(temp=='h')//右上跳
         {
-        	 $(links[c]).attr('src', 'images/按钮/跳发光.png');
-     	    c+=1;
+        	if(flag==1)
+        		{
+        		 $(links[c]).attr('src', 'images/按钮/跳发光.png');
+          	    c+=1;
+        		}
+        	else
+        		{
+        		 $(linked[pro1]).attr('src', 'images/按钮/跳发光.png');
+           	    pro1+=1;
+        		}
                     cnt=topOffset;
                     tmp=leftOffset;
                    
@@ -857,13 +1005,72 @@
         }
         if(leftOffset>=546)//order.Score==2
        	{
-        	$("#heart1").css('display','none'); 
+        	//$("#heart1").css('display','none');
+        document.getElementById("audio_wingame").play();
        	 document.getElementById('change2').src="images/按钮/star2.png";
+       	 //$("#heart2").attr('src', 'images/按钮/吃心发光.png');
+       	 var imgs = document.createElement('img');//创建一个标签
+        imgs.setAttribute('src','images/按钮/吃心发光.png');//给标签定义src链接
+        document.getElementById('heart1').appendChild(imgs);//放到指定的id里
+       	 var img=document.getElementById('heart1');
+       	
+       	 var cos=null;
+       	 var edge= 300;
+       	 var add=edge;
+       	 img.style.top=300+"px";
+       	small();
+       	function small()
+        {
+          clearInterval(img.cos);
+         cos=setInterval(function()
+          {
+        	 
+        	 edge-=10;
+           img.style.top=edge+"px";          
+            if(edge<=(add-250))
+            {
+            	$("#heart1").css('display','none'); 
+              clearInterval(img.cos);
+
+            }
+          },20)
+
+        }
+       	 
        	}
       
         if(temp=="J")  //成功通关
         {
-        	 $("#heart2").css('display','none'); 
+        	 //$("#heart2").css('display','none');        	 
+         document.getElementById("audio_wingame").play();
+         var imgs = document.createElement('img');//创建一个标签
+         imgs.setAttribute('src','images/按钮/吃心发光.png');//给标签定义src链接
+         document.getElementById('heart2').appendChild(imgs);//放到指定的id里
+         var img=document.getElementById('heart2');
+       	 var cos=null;
+       	 var edge= 200;
+       	 var add=edge;
+       	
+       	 img.style.top=200+"px";
+       	 localStorage.setItem('gameRound', 3);
+       	small();
+       	function small()
+        {
+          clearInterval(img.cos);
+         cos=setInterval(function()
+          {
+        	 
+        	 edge-=10;
+           img.style.top=edge+"px";
+            if(edge<=(add-150))
+            {
+            	$("#heart2").css('display','none'); 
+              clearInterval(img.cos);
+
+            }
+          },10)
+
+        }
         	 document.getElementById('change2').src="images/按钮/star3.png";
            flag=1;
            leftOffset=115;
@@ -879,7 +1086,8 @@
         	 leftOffset=115;
      	    topOffset=500;
           flag=2;
-          
+          var tips1=document.querySelector('.tips1 p'); 		
+			tips1.parentNode.style.display='block';
           return ;//结束递归
         }
                  
@@ -888,23 +1096,49 @@
        
         setTimeout(function()
               {
-                   Go(start+1,end,links,c); 
+                   Go(start+1,end,links,c,pro1,flag,linked,pause); 
                },1200)
               
       }
           
 	</script>
 	<script>
-	 function Reset()
+	 function reset3()
 	  {
 		 document.getElementById("start").disabled=false;	
 		 var car = document.getElementsByClassName("logo3");
+		 document.getElementById('change2').src="images/按钮/star0.png";
 		 car[0].style.left=83+"px";
-		 car[0].style.top=500+"px";
-		 var obj=document.getElementById("div");
+		 car[0].style.top=485+"px";
+		
 		 var links=$("#div img");
 		 var len=links.length;
 		 var cnt=0;
+		 var div1=document.createElement("div");
+		 var div2=document.createElement("div");
+		 div1.id = "div1";
+		 div2.id = "div2";
+		 div1.className="heart3_1";
+		 div2.className="heart3_2";
+		 div1.style.width=80+"px";
+		 div1.style.height=80+"px";
+		 div2.style.width=80+"px";
+		 div2.style.height=80+"px";
+		 
+		 div1.style.left=260+"px";
+		 div1.style.top=640+"px";
+		 div2.style.left=140+"px";
+		 div2.style.top=820+"px";
+		 div1.style.display="block";
+		 div2.style.display="block";
+		 
+		 div1.style.backgroundImage = 'url(images/按钮/吃心发光.png)';
+		 var imgs = document.createElement('img');//创建一个标签
+         imgs.setAttribute('src','images/按钮/吃心发光.png');//给标签定义src链接
+         div1.appendChild(imgs);//放到指定的id里
+         div2.appendChild(imgs);//放到指定的id里
+		 //$("#heart2").css('display','block');
+		 //$("#heart1").css('display','block'); 
 		links.remove();
 		 //for(var cnt=0;cnt<len;cnt++)
 			 {
@@ -915,6 +1149,55 @@
 			
 		 	 
 	  }
+	 function reset2()
+	 {
+		 var cnt=0;
+		if(select==1)
+			{
+			
+			 //var obj=$(".main img");
+			 
+			var obj=document.getElementById("div");
+			 //var len=obj.length;	
+			 obj.removeChild(obj.childNodes[0]);
+			for(var cnt=0;cnt<len;cnt++)
+			 {
+			 obj.removeChild(obj.childNodes[cnt]);
+			 }
+			}
+		if(select==0)
+			{
+			
+			//var obj1=document.getElementsByClassName('.pro1');
+			
+			var obj= document.getElementsByTagName("p")[2];
+			//var obj=document.getElementById("div1");
+			 //var len=obj.length;	
+			 obj.removeChild(obj.childNodes[0]);
+			
+			}
+		//for(var cnt=0;cnt<len;cnt++)
+		 {
+		// obj.removeChild(obj.childNodes[cnt]);
+		 }
+	 
+	// obj.removeChild(obj.childNodes[1]);
+	 }
+	 function paused()
+	 {
+		 $("#logo1").stop();
+		 alert("sss");
+	 }
 	</script>
+	
+	<script type="text/javascript">
+			//window.onload表示等页面标签内容加载完之后再加载window.onload里面的内容
+			window.onload = function(){
+				var diving = document.getElementById("logo1");
+				diving.style.display='none';
+				
+			}
+		</script>
+		<audio id="audio_wingame" src="music/游戏胜利.mp3"></audio>
  </body>
 </html>

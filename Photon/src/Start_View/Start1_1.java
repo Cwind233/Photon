@@ -5,7 +5,7 @@ import Map1_Level.Level1_1;
 
 public class Start1_1 {
 	 Level1_1 map =new Level1_1(12,12);  //初始化地图大小
-	 Hero_A hero=new Hero_A(7, 0,2,map.getMap());//初始化人物位置，方向;
+	 Hero_A hero=new Hero_A(8, 0,2,map.getMap());//初始化人物位置，方向;
 	
 	 String Order;
 	 int map1_1[][];
@@ -28,9 +28,17 @@ public class Start1_1 {
 		  
 		c=hero.GetDirection(hero.get_Direction(), map1_1, (int)Order.charAt(i));//调用人物移动函数
 		temp=temp+c;//编译返回前端的命令
-		
-		if(hero.get_X()==1&&hero.get_Y()==9)
+		if(Order.charAt(i)=='p')
 		{
+			temp=temp+'p';
+		}
+		if(Order.charAt(i)=='x')
+		{
+			temp=temp+'x';
+		}
+		if(hero.get_X()==2&&hero.get_Y()==9)
+		{
+		
 			temp=temp+"J";
 		}
 	  }

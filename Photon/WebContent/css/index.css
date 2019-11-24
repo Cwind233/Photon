@@ -142,18 +142,18 @@ main {
   top:  485px;
   left: 83px;
 }
-top: 500px;
-  left: 83px;
-.logo1{
+
+.logo4{
   position: absolute;
-  background: url(../images/人物/站上色.png)  no-repeat;
+  background: url(../images/人物/wo1.gif)  no-repeat;
   background-size: 100% 100%;
-  width: 80px;
-  height: 80px;
-  top: 410px;
+  width: 90px;
+  height: 90px;
+  top:  410px;
   left: 250px;
 }
- 
+ 410
+ 250
 .logo2{
   position: absolute;
   background: url(../images/人物/站上色.png)  no-repeat;
@@ -170,7 +170,7 @@ top: 500px;
   width: 80px;
   height: 80px;
   top: 410px;
-  left: 690px;
+  left: 730px;
   border-radius: 50%;
   box-shadow: rgb(11,234,235) 0px 0px 18px inset;
 }
@@ -183,7 +183,7 @@ top: 500px;
   width: 80px;
   height: 80px;
   top: 360px;
-  left:500px;
+  left:540px;
   border-radius: 50%;
   box-shadow: rgb(11,234,235) 0px 0px 18px inset;
 }
@@ -212,6 +212,11 @@ top: 500px;
 
 button {
   margin: 5px;
+}
+.CttR-footer .reset2{
+  width: 100px;
+  height: 50px;
+  margin-right: 145px;
 }
 .box2{
   width: 100px;
@@ -286,7 +291,7 @@ button {
   top: 20px;
  }
 
-.content-right .CttR-content #div{
+.content-right .CttR-content #div {
   margin-bottom: 25px;
   background: rgb(255,255,152);
 }

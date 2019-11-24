@@ -1,0 +1,355 @@
+main {
+    position: relative;
+    margin: 0 auto;
+    width:100%; 
+    height: 990px;
+    background-image: url(../images/地图/背景1.png);
+    background-size: 100% 100%;
+}
+.wrapper{
+  margin: 0 auto;
+  width:80%; 
+}
+.content-left
+{
+	width: 70%;
+	height:800px;
+	/*margin: 100px auto;*/
+	position: relative;
+    float: left;
+    background-image:url("../images/地图/背景.png");
+    background-size: 100% 100%;
+}
+.btn{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+.btn button{
+  background: none;
+  border: none;
+  background-size: 100% 100%;
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.startBtn button{
+  width: 200px;
+  height: 80px;
+  background-image: url(../images/按钮/next.png);
+  margin-left: -100px;
+  margin-top: -40px;
+}
+.CongraculationBtn{
+  display:none;
+}
+.CongraculationBtn1{
+  display:none;
+}
+.CongraculationBtn button{
+  width: 400px;
+  height: 300px;
+  background-image: url(../images/按钮/恭喜通关.png);
+  margin-left: -180px;
+  margin-top: -180px;
+}
+.CongraculationBtn1 button{
+  width: 400px;
+  height: 300px;
+  background-image: url(../images/按钮/恭喜通关.png);
+  margin-left: -180px;
+  margin-top: -180px;
+}
+.tipBtn1{
+  display:none;
+}
+.tipBtn1 button{
+  width: 400px;
+  height: 300px;
+  background-image: url(../images/按钮/恭喜通关.png);
+  margin-left: -180px;
+  margin-top: -180px;
+}
+.tipBtn2{
+  display:none;
+}
+.tipBtn2 button{
+  width: 400px;
+  height: 300px;
+  background-image: url(../images/按钮/恭喜通关.png);
+  margin-left: -180px;
+  margin-top: -180px;
+}
+.tipBtn3{
+  display:none;
+}
+.tipBtn3 button{
+  width: 400px;
+  height: 300px;
+  background-image: url(../images/按钮/恭喜通关.png);
+  margin-left: -180px;
+  margin-top: -180px;
+}
+.tiptxt p{
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  padding-top: 100px;
+}
+#cavsElem{
+    position: absolute;
+    top: 170px;
+    left:290px;
+}
+.top-left{
+  margin-left: 15px;
+  margin-top: 10px;
+}
+.top-right{
+  float: right;
+  width: 180px;
+  height: 30px;
+  padding-right: 30px;
+  position:relative;
+  left:-80px;
+  top:40px;
+}
+
+#change2{
+  width: 250px;
+  height: 80px;
+  padding-right: 30px;
+  position: relative;
+  left:-10px;
+  top: -45px;
+}
+.CttL-content{
+  position: relative;
+}
+.logo3{
+  position: absolute;
+  background: url(../images/人物/wo1.gif)  no-repeat;
+  background-size: 100% 100%;
+  width: 80px;
+  height: 80px;
+  top:  485px;
+  left: 83px;
+}
+top: 500px;
+  left: 83px;
+.logo4{
+  position: absolute;
+  background: url(../images/人物/wo1.gif)  no-repeat;
+  background-size: 100% 100%;
+  width: 80px;
+  height: 80px;
+  top:  485px;
+  left: 83px;
+}
+ 410 250
+.logo2{
+  position: absolute;
+  background: url(../images/人物/站上色.png)  no-repeat;
+  background-size: 100% 100%;
+  width: 80px;
+  height: 80px;
+  top: 490px;
+  left: 300px;
+}
+.heart1{
+  position: absolute;
+  background: url(../images/地图/心.png)  no-repeat;
+  background-size: 100% 100%;
+  width: 80px;
+  height: 80px;
+  top: 410px;
+  left: 690px;
+  border-radius: 50%;
+  box-shadow: rgb(11,234,235) 0px 0px 18px inset;
+}
+
+
+.heart2{
+  position: absolute;
+  background: url(../images/地图/心.png)  no-repeat;
+  background-size: 100% 100%;
+  width: 80px;
+  height: 80px;
+  top: 360px;
+  left:500px;
+  border-radius: 50%;
+  box-shadow: rgb(11,234,235) 0px 0px 18px inset;
+}
+.heart3_1{
+  position: absolute;
+  background: url(../images/地图/心.png)  no-repeat;
+  background-size: 100% 100%;
+  width: 80px;
+  height: 80px;
+  top: 260px;
+  left: 640px;
+  border-radius: 50%;
+  box-shadow: rgb(11,234,235) 0px 0px 18px inset;
+}
+.heart3_2{
+  position: absolute;
+  background: url(../images/地图/心.png)  no-repeat;
+  background-size: 100% 100%;
+  width: 80px;
+  height: 80px;
+  top: 140px;
+  left: 820px;
+  border-radius: 50%;
+  box-shadow: rgb(11,234,235) 0px 0px 18px inset;
+}
+
+button {
+  margin: 5px;
+}
+.box2{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: absolute;
+  left: 0;
+  top: 40px;
+  }
+.footer {
+    top: 450px;
+    left: 300px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 42px;
+    line-height: 42px; }
+
+.footer button{
+  background-color: rgba(0,0,0,0);
+}
+.footer > ul > li {
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+    margin-left: 50px; 
+  }
+.footer > ul > li > a {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 42px;
+    width: 100%;
+    vertical-align: middle;
+    transition: all .3s; }
+.footer > ul > li > a:hover {
+    background-color: rgba(255, 255, 255, 0.4); }
+
+.content-right{
+  float: left;
+  width:25%;
+  height:800px;
+   /* background-image: url("../images/bg3.png"), url("../images/bg3.png"),url("../images/bg3-r.png");*/
+  background:rgb(218,235,226) ;
+  background-repeat:no-repeat;
+  background-position:0 0, 100px 0,332px 0;
+  position: relative;
+  /*display: inline;*/
+}
+.content-right .CttR-top{
+  text-align: center;
+  top: 10px;
+  padding-bottom: 20px;
+}
+.content-right .CttR-top .reset1{
+  background-image: url(images/按钮/继续.png);
+  background-size: 100% 100%;
+  width: 70px;
+  width: 70px;
+
+}
+.content-right .CttR-top .CttRTop-left{
+  display: inline-block;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.content-right .CttR-top .CttRTop-right{
+  display: inline-block;
+}
+.content-right .CttR-content{
+  padding-left: 60px;
+  top: 20px;
+ }
+
+.content-right .CttR-content #div {
+  margin-bottom: 25px;
+  background: rgb(255,255,152);
+}
+
+.CttR-footer{
+  float: right;  
+}
+.CttR-footer .reset2{
+  width: 100px;
+  height: 50px;
+  margin-right: 145px;
+}
+.CttR-footer .tips{
+  width: 100px;
+  height: 50px;
+  margin-right: 45px;
+}
+.CttR-footer img{
+  width: 100px;
+  height: 50px; 
+  position:relative;
+  padding-right: 50px;
+}
+.CttR-footer .tips-hover{
+  width: 300px;
+  height:200px;
+  position: absolute;
+  top: 280px;
+  right: 100px;
+  display: none;
+}
+
+.CttR-footer .tips-hover  p{
+  width: 300px;
+  height:200px;
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+  padding-top: 100px;
+  padding-left:100px;
+  background-image: url(../images/按钮/tip框.png);
+  background-size: 100% 100%;
+}
+.CttR-footer a:hover .tips-hover{
+  display: block;
+}
+
+.logo{
+  height: 200px;
+  width: 200px;
+  margin-top:170px;
+  margin-left:130px;
+  background-image: url(../images/人物/hulogo.png);
+  background-size: 100% 100%;
+  border-radius: 50%;
+  box-shadow: rgb(11,234,235) 0px 0px 18px inset;
+}
+.goss{
+	float:left;
+	  height: 200px;
+  width: 200px;
+}
+.jumps{
+	float:left;
+	  height: 200px;
+  width: 200px;
+}
